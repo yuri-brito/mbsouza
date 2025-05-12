@@ -1,0 +1,293 @@
+.labelCriarConta .form-control:focus ~ label,
+.labelCriarConta .form-control:not(:placeholder-shown) ~ label {
+  top: -10px; /* Muda a posição da label ao focar */
+  transition: all 0.3s ease-in-out;
+}
+
+.pesquisaNavbar > label,
+.labelCriarConta > label {
+  padding-block: 8.75px;
+  color: #737373;
+  font-weight: 400;
+}
+.pesquisaNavbar > label::after,
+.labelCriarConta > label::after {
+  top: 8px !important;
+}
+
+.labelCriarConta {
+  text-align: left;
+}
+.pesquisaNavbar > input {
+  font-size: 12px !important;
+  width: 50vw !important;
+  height: 35px !important;
+  min-height: 35px !important;
+  padding-bottom: 0px !important;
+  padding-top: 12px !important;
+}
+
+.labelCriarConta > input {
+  font-size: 12px !important;
+  /* width: 30vw !important; */
+  height: 35px !important;
+  min-height: 35px !important;
+  padding-bottom: 0px !important;
+  padding-top: 12px !important;
+}
+.btn-close {
+  font-size: 12px;
+}
+
+.dropdownPerfil {
+  display: inline-flex;
+  border-radius: var(--bs-border-radius-sm);
+}
+
+.dropdownPerfil > button {
+  font-size: 12px;
+  background-color: transparent !important;
+  color: var(--bs-text-color);
+}
+.dropdownPerfil > button:hover {
+  background-color: transparent !important;
+}
+.dropdownPerfil > button:active {
+  background-color: transparent !important;
+}
+
+.dropdownPerfil > .dropdown-menu > a {
+  border-radius: 4px;
+}
+
+.dropdownPerfil > .dropdown-menu {
+  --bs-dropdown-link-active-bg: rgb(131, 188, 131) !important;
+  animation: fadein 0.3s linear;
+  font-size: 11px;
+  min-width: 120px;
+}
+
+.dropdownPerfil > button::after {
+  display: none;
+}
+
+.dropdownMenu {
+  display: inline-flex;
+  border-radius: var(--bs-border-radius-sm);
+}
+
+.dropdownMenu > button {
+  font-size: 12px;
+  background-color: transparent !important;
+  color: var(--bs-text-color);
+  border-width: 1.5px;
+}
+.dropdownMenu > button:hover,
+.dropdownMenu > button:active {
+  background-color: transparent !important;
+}
+.dropdownMenu > .dropdown-menu {
+  --bs-dropdown-link-active-bg: rgb(131, 188, 131) !important;
+  animation: fadein 0.3s linear;
+}
+.dropdownMenu > .dropdown-menu > a {
+  border-radius: 4px;
+}
+
+.dropdownMenu > .dropdown-menu {
+  font-size: 11px;
+  min-width: 120px;
+}
+.dropdownMenu > button::after {
+  display: none;
+}
+.profileImgButton {
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  font-size: 10px;
+}
+.criarContaModal > .modal-dialog {
+  margin-bottom: 60px !important;
+}
+@media (max-width: 330px) {
+  .separadorTraco {
+    top: 3px !important;
+  }
+  .lupaPesquisa {
+    top: 7px !important;
+    font-size: 12px !important;
+  }
+  .pesquisaNavbar {
+    font-size: 10px !important;
+  }
+
+  .pesquisaNavbar > label {
+    padding-block: 6.5px;
+
+    font-weight: 400;
+  }
+
+  .pesquisaNavbar > input {
+    font-size: 10px !important;
+    height: 30px !important;
+    min-height: 30px !important;
+  }
+
+  .labelCriarConta {
+    font-size: 10px !important;
+  }
+
+  .labelCriarConta > label {
+    padding-block: 6.5px;
+
+    font-weight: 400;
+  }
+
+  .labelCriarConta > input {
+    font-size: 10px !important;
+    height: 30px !important;
+    min-height: 30px !important;
+  }
+  .togglePassword {
+    top: 1px !important;
+    font-size: 18px !important;
+  }
+  .criarContaButton {
+    font-size: 10px !important;
+    padding-inline: 6px;
+    padding-block: 3px;
+  }
+
+  .regrasSenha {
+    font-size: 8.5px !important;
+  }
+  .btn-close {
+    font-size: 10px;
+  }
+  .headerModalCadastro {
+    font-size: 12px !important;
+  }
+  .cadastroButtons {
+    font-size: 10px !important;
+  }
+  .msgEmailActive {
+    font-size: 10px !important;
+  }
+  .modalBodyActiveFeedBack {
+    font-size: 10px !important;
+  }
+  .linkEsqueciSenha {
+    font-size: 9px !important;
+  }
+  .bMsgError {
+    font-size: 10px !important;
+  }
+  .LoginButtonForgot {
+    font-size: 7px !important;
+  }
+  .dropdownPerfil > button {
+    font-size: 10px;
+    padding-block: 3px;
+    padding-inline: 6px;
+    font-weight: 400;
+  }
+  .dropdownPerfil > .dropdown-menu {
+    font-size: 10px;
+    min-width: 100px;
+  }
+}
+
+.dropdownMenu > button {
+  font-size: 10px;
+  padding-block: 3px;
+  padding-inline: 6px;
+  font-weight: 400;
+}
+.dropdownMenu > .dropdown-menu {
+  font-size: 10px;
+  min-width: 100px;
+}
+.profileImgButton {
+  width: 15px;
+  height: 15px;
+  font-size: 8px;
+}
+.labelCriarConta .form-control:focus ~ label,
+.labelCriarConta .form-control:not(:placeholder-shown) ~ label {
+  top: -6px; /* Muda a posição da label ao focar */
+  transition: all 0.3s ease-in-out;
+}
+
+/* CSS Icon erro ao criar */
+.bi-cloud-upload-fill {
+  color: rgb(153, 153, 169);
+  font-size: 30px;
+  transition: font-size 1s;
+}
+.bi-cloud-upload-fill:hover {
+  font-size: 40px;
+}
+
+/* svg {
+  width: 10px;
+  display: block;
+  margin: 4px auto 0;
+} */
+
+.path {
+  stroke-dasharray: 1000;
+  stroke-dashoffset: 0;
+  &.circle {
+    -webkit-animation: dash 2s ease-in-out;
+    animation: dash 2s ease-in-out;
+  }
+  &.line {
+    stroke-dashoffset: 1000;
+    -webkit-animation: dash 2s 1s ease-in-out forwards;
+    animation: dash 2s 1s ease-in-out forwards;
+  }
+  &.check {
+    stroke-dashoffset: -100;
+    -webkit-animation: dash-check 2s 1s ease-in-out forwards;
+    animation: dash-check 2s 1s ease-in-out forwards;
+  }
+}
+
+@-webkit-keyframes dash {
+  0% {
+    stroke-dashoffset: 1000;
+  }
+  100% {
+    stroke-dashoffset: 0;
+  }
+}
+
+@keyframes dash {
+  0% {
+    stroke-dashoffset: 1000;
+  }
+  100% {
+    stroke-dashoffset: 0;
+  }
+}
+
+@-webkit-keyframes dash-check {
+  0% {
+    stroke-dashoffset: -100;
+  }
+  100% {
+    stroke-dashoffset: 900;
+  }
+}
+
+@keyframes dash-check {
+  0% {
+    stroke-dashoffset: -100;
+  }
+  100% {
+    stroke-dashoffset: 900;
+  }
+}
+
+/* CSS Icon erro ao criar */

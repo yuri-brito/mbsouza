@@ -1,0 +1,21 @@
+.App {
+  width: 100%;
+}
+
+.card {
+  --bs-card-cap-bg: rgba(var(--bs-body-color-rgb), 0.1);
+}
+
+.modal-header,
+.modal-footer {
+  background-color: rgba(var(--bs-body-color-rgb), 0.1) !important;
+}
+
+@keyframes fadein {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}

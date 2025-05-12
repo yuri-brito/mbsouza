@@ -1,0 +1,30 @@
+@media (max-width: 330px) {
+  .footerWrap {
+    font-size: 9px !important;
+  }
+}
+@media (max-width: 422px) {
+  .meioRedes {
+    margin-inline: 18px !important;
+  }
+}
+@media (max-width: 386px) {
+  .meioRedes {
+    margin-inline: 12px !important;
+  }
+}
+@media (max-width: 350px) {
+  .meioRedes {
+    margin-inline: 8px !important;
+  }
+}
+@media (max-width: 300px) {
+  .meioRedes {
+    margin-inline: 4px !important;
+  }
+}
+@media (max-width: 270px) {
+  .meioRedes {
+    margin-inline: 2px !important;
+  }
+}

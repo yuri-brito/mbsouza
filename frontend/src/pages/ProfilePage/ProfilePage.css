@@ -1,0 +1,144 @@
+.accordion {
+  --bs-accordion-active-bg: var(--bs-success-bg-subtle);
+  --bs-accordion-active-color: var(--bs-success-text-emphasis);
+  --bs-accordion-btn-focus-box-shadow: 0 0 0 0.25rem rgb(80 142 90 / 25%);
+}
+
+.profilePageImg {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  font-size: 16px;
+}
+
+.profile-container {
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  overflow: hidden; /* Ocultar partes da imagem que saem do contêiner */
+  position: relative;
+  width: 100px; /* Ajuste o tamanho conforme necessário */
+  height: 100px; /* Ajuste o tamanho conforme necessário */
+  cursor: grab; /* Indicador de que a imagem pode ser arrastada */
+}
+
+.profile-picture {
+  /* border-radius: 50%; Torna a imagem redonda */
+  object-fit: cover; /* Mantém a proporção da imagem */
+  position: absolute;
+}
+
+.profile-container:active {
+  cursor: grabbing; /* Indicador de que a imagem está sendo arrastada */
+}
+
+.modalMedio > .modal-dialog {
+  min-width: 75vw;
+}
+
+.profileAcordionHeader > button {
+  font-size: 12px;
+  padding-inline: 15px;
+  padding-block: 8px;
+}
+.profileAcordionHeader > button::after {
+  background-size: 12px;
+  width: 12px;
+  height: 12px;
+  --bs-accordion-btn-active-icon: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='none' stroke='%2375b798' stroke-linecap='round' stroke-linejoin='round'%3e%3cpath d='M2 5L8 11L14 5'/%3e%3c/svg%3e") !important;
+  --bs-accordion-btn-icon: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='none' stroke='%2375b798' stroke-linecap='round' stroke-linejoin='round'%3e%3cpath d='M2 5L8 11L14 5'/%3e%3c/svg%3e") !important;
+}
+
+.disabledSemEstilo > .form-control:disabled {
+  background-color: var(--bs-body-bg); /* Mantém o fundo branco */
+  opacity: 1; /* Remove a opacidade padrão */
+  color: #6c757d;
+}
+
+.disabledSemEstilo > .form-control:disabled ~ label::after {
+  background-color: var(--bs-body-bg) !important; /* Mantém o fundo branco */
+  /* opacity: 1 !important; /* Remove a opacidade padrão */
+}
+.disabledSemEstilo > .form-control:disabled ~ label {
+  color: rgba(var(--bs-body-color-rgb), 0.65) !important;
+}
+
+@media (max-width: 700px) {
+  .rowProfile {
+    width: 70vw !important;
+  }
+  .cardBodyProfile {
+    padding: 14px;
+  }
+}
+@media (max-width: 600px) {
+  .rowProfile {
+    width: 80vw !important;
+  }
+  .cardBodyProfile {
+    padding: 12px;
+  }
+}
+@media (max-width: 500px) {
+  .rowProfile {
+    width: 90vw !important;
+  }
+  .cardBodyProfile {
+    padding: 10px;
+  }
+}
+
+@media (max-width: 400px) {
+  .cardBodyProfile {
+    padding: 8px;
+  }
+}
+
+@media (max-width: 330px) {
+  .profilePageImg {
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+    font-size: 12px;
+  }
+  .acordionBody {
+    padding-inline: 8px;
+  }
+  .nomeProfile {
+    font-size: 10px !important;
+    margin-bottom: -15px !important;
+  }
+  .criadoProfile {
+    font-size: 7px !important;
+    margin-bottom: -3px !important;
+  }
+  .disabledSemEstilo > i {
+    top: 16px !important;
+  }
+  .profileAcordionHeader > button {
+    font-size: 11px;
+    padding-inline: 13px;
+    padding-block: 6px;
+  }
+  .cardBodyProfile {
+    padding: 0px;
+  }
+}
+
+@media (min-width: 400px) and (max-width: 650px) {
+  .nomeTruncado {
+    width: 80% !important;
+  }
+}
+@media (min-width: 300px) and (max-width: 400px) {
+  .nomeTruncado {
+    width: 75% !important;
+  }
+}
+@media (max-width: 300px) {
+  .nomeTruncado {
+    width: 70% !important;
+  }
+}
