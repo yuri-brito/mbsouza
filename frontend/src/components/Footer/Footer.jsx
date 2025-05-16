@@ -32,7 +32,8 @@ const Footer = (props) => {
       <Row className="d-flex m-0 justify-content-center mt-1">
         <Col>
           {" "}
-          Copyright <i className="bi bi-c-circle"></i> Yooferta LTDA
+          Copyright <i className="bi bi-c-circle"></i> MBSOUZA Tratamento
+          Térmico
         </Col>
       </Row>
     </div>

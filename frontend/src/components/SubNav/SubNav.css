@@ -1,0 +1,89 @@
+.icon{
+    font-size: 22px;
+}
+.contatoEmail{
+    font-size: 16px;
+}
+.contatoZap{
+    font-size: 14px;
+}
+
+.footerWrap{
+  margin-top: calc(11vw + 5px);
+}
+@media (max-width: 820px) {
+  .footerWrap{
+  margin-top: 95px;
+}
+}
+@media (max-width: 593px) {
+  .footerWrap {
+    font-size: 12px !important;
+  }
+  .icon{
+    font-size: 20px;
+  }
+  .contatoEmail{
+    font-size: 14px;
+  }
+  .contatoZap{
+    font-size: 12px;
+  }
+  .meioRedes {
+    margin-inline: 18px !important;
+  }
+}
+@media (max-width: 515px) {
+
+  .meioRedes {
+    margin-inline: 14px !important;
+  }
+}
+@media (max-width: 493px) {
+
+  .meioRedes {
+    margin-inline: 10px !important;
+  }
+}
+@media (max-width: 473px) {
+
+  .meioRedes {
+    margin-inline: 0px !important;
+    padding-inline: 6px !important;
+  }
+
+}
+@media (max-width: 430px) {
+  .footerWrap {
+    width: 90% !important;
+  }
+  .wraper{
+    padding-inline: 6px !important;
+  }
+  
+}
+
+@media (max-width: 422px) {
+  .icon{
+    font-size: 18px;
+  }
+  .contatoEmail{
+    font-size: 12px;
+  }
+  .contatoZap{
+    font-size: 10px;
+  }
+ 
+}
+@media (max-width: 330px) {
+  .icon{
+    font-size: 15px;
+  }
+  .contatoEmail{
+    font-size: 11px;
+  }
+  .contatoZap{
+    font-size: 9px;
+  }
+ 
+}

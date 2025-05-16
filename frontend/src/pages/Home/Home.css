@@ -1,0 +1,93 @@
+.hamburguer{
+    font-size: 28px;
+}
+.nProdutos{
+    font-size: 22px;
+}
+@media (max-width: 800px) {
+    .hamburguer{
+    font-size: 26px;
+}
+    .nProdutos{
+    font-size: 20px;
+}
+.titulos{
+    font-size: 22px;
+}
+.subtitulos{
+    font-size: 18px;
+}
+.textos{
+    font-size: 15px;
+}
+}
+@media (max-width: 620px) {
+    .hamburguer{
+    font-size: 24px;
+}
+    .nProdutos{
+    font-size: 18px;
+}
+.titulos{
+    font-size: 21px;
+}
+.subtitulos{
+    font-size: 17px;
+}
+.textos{
+    font-size: 14px;
+}
+
+}
+
+@media (max-width: 550px) {
+    .hamburguer{
+    font-size: 22px;
+}
+    .nProdutos{
+    font-size: 16px;
+}
+.titulos{
+    font-size: 20px;
+}
+.subtitulos{
+    font-size: 16px;
+}
+.textos{
+    font-size: 13px;
+}
+}
+@media (max-width: 425px) {
+    .hamburguer{
+    font-size: 20px;
+}
+    .nProdutos{
+    font-size: 14px;
+}
+.titulos{
+    font-size: 20px;
+}
+.subtitulos{
+    font-size: 15px;
+}
+.textos{
+    font-size: 12px;
+}
+}
+@media (max-width: 330px) {
+    .hamburguer{
+    font-size: 18px;
+}
+    .nProdutos{
+    font-size: 12px;
+}
+.titulos{
+    font-size: 19px;
+}
+.subtitulos{
+    font-size: 14px;
+}
+.textos{
+    font-size: 11px;
+}
+}

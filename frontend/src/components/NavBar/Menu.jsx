@@ -99,7 +99,7 @@ function Menu() {
               boxShadow: "none",
             }}
           >
-            Categorias
+            Menu
           </Col>
         </Row>
       }
@@ -109,11 +109,7 @@ function Menu() {
       <Dropdown.Item
         eventKey="0"
         style={{ paddingInline: 12 }}
-        onClick={(e) => {
-          e.preventDefault;
-          navigate("/");
-        }}
-        active={pathname === "/"}
+        onClick={(e) => navigate("/")}
       >
         <i className="bi bi-house-door"></i> Home
       </Dropdown.Item>
@@ -121,27 +117,31 @@ function Menu() {
       <Dropdown.Item
         eventKey="1"
         style={{ paddingInline: 12 }}
-        onClick={(e) => {
-          e.preventDefault;
-          navigate("/ProfilePage");
-        }}
-        active={pathname === "/ProfilePage"}
+        onClick={(e) => navigate("/Empresa")}
       >
-        <i className="bi bi-person"></i> Perfil
+        <i className="bi bi-building"></i> Empresa
       </Dropdown.Item>
-      <Dropdown.Item eventKey="2" style={{ paddingInline: 12 }}>
-        <i className="bi bi-bag-heart"></i> Lista de desejos
+      <Dropdown.Item
+        eventKey="2"
+        style={{ paddingInline: 12 }}
+        onClick={(e) => navigate("/Informacoes")}
+      >
+        <i className="bi bi-info-circle"></i> Informações
       </Dropdown.Item>
-      <Dropdown.Item eventKey="3" style={{ paddingInline: 12 }}>
-        <i className="bi bi-lightning-charge"></i> Categorias mais acessadas
+      <Dropdown.Item
+        eventKey="3"
+        style={{ paddingInline: 12 }}
+        onClick={(e) => navigate("/Contato")}
+      >
+        <i className="bi bi-people"></i> Contato
       </Dropdown.Item>
-      <Dropdown.Item eventKey="3" style={{ paddingInline: 12 }}>
+      {/* <Dropdown.Item eventKey="3" style={{ paddingInline: 12 }}>
         <i className="bi bi-coin"></i> Minhas ofertas
       </Dropdown.Item>
       <Dropdown.Divider />
       <Dropdown.Item eventKey="4" style={{ paddingInline: 12 }}>
         <i className="bi bi-x-circle"></i> Sair
-      </Dropdown.Item>
+      </Dropdown.Item> */}
     </DropdownButton>
   );
 }

@@ -19,11 +19,19 @@ import { useContext } from "react";
 import Perfil from "./Perfil";
 import CriarConta from "./CriarConta";
 import Login from "./Login";
-import MyLogo from "../../assets/logo.svg";
-import { Link } from "react-router-dom";
-function NavBar() {
-  const [theme, setTheme] = useState("");
+import MyLogo from "../../assets/logo.png";
+import MyLogow from "../../assets/logo.png";
+import { Link, useNavigate } from "react-router-dom";
+import SubNav from "../SubNav/SubNav";
+import Home from "./Home";
+import Empresa from "./Empresa";
+import Informacoes from "./Informacoes";
+import Contato from "./Contato";
+import MenuPerfil from "./MenuPerfil";
+function NavBar({ theme, setTheme }) {
+  // const [theme, setTheme] = useState("");
   const { loggedUser, setLoggedUser } = useContext(AuthContext);
+  const navigate = useNavigate();
   const divRef = useRef(null);
   const [animationClass, setAnimationClass] = useState("");
   useEffect(() => {
@@ -63,28 +71,32 @@ function NavBar() {
   return (
     <Navbar
       ref={divRef}
-      className="col-md-auto"
+      className="col-md-auto p-0"
       id="navBarPincipal"
       style={{
         background:
           theme === "dark"
-            ? " linear-gradient(165deg, rgba(102,131,166,1) 0%, rgba(118,150,94,1) 100%)"
-            : " linear-gradient(165deg, rgba(102,131,166,1) 0%, rgba(118,150,94,1) 100%)",
+            ? " linear-gradient(165deg, rgba(0, 105, 148, 1) 0%, rgba(0, 65, 106, 1) 100%)"
+            : " linear-gradient(165deg, rgba(173, 216, 230, 1) 0%, rgba(0, 191, 255, 1) 100%)",
         boxShadow:
           "rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px",
         animation: "fadein 1.5s",
         position: "fixed",
         top: 0,
         width: "100%",
-        height: 85,
+        height: "11vw",
+        minHeight: 90,
 
         zIndex: 999,
         color: "var(--bs-text-color)",
       }}
     >
-      <Col className="navBarConteudo" style={{}}>
-        <Row className="d-flex justify-content-evenly align-items-center m-0 mb-1">
-          <Col xs="auto" className="col p-0">
+      <Col className="navBarConteudo" style={{ height: "100%" }}>
+        <Row
+          className="d-flex justify-content-evenly align-items-center m-0"
+          style={{ height: "100%" }}
+        >
+          <Col className="col-3 justify-content-center align-items-center p-0">
             <Link
               to="/"
               style={{
@@ -96,105 +108,146 @@ function NavBar() {
               className=""
             >
               <Image
-                src={MyLogo}
+                src={theme === "dark" ? MyLogow : MyLogo}
                 alt="logo"
                 style={{
-                  filter: theme === "dark" ? "invert(1)" : "",
-                  width: "10vw",
+                  filter: theme === "dark" ? "invert(20)" : "",
+                  width: "12vw",
                   // height: 50,
-                  // maxWidth: 100,
+                  maxWidth: 1000,
                   minWidth: 60,
                 }}
               ></Image>
             </Link>
           </Col>
-          <Col xs="auto" className="col-md-auto">
-            <Buscador />
-          </Col>
-          <Col xs="auto" className="col-md-auto ">
-            {/* <Row className="d-flex justify-content-center">Saudação</Row> */}
-            <Row className="d-flex justify-content-center align-items-center">
-              <Col className="d-flex justify-content-end p-0 col">
-                <Image
-                  src={solNavbar}
-                  alt="sun_image"
-                  style={{
-                    filter: theme === "dark" ? "invert(1)" : "",
-                    width: "1.4vw",
-                    maxWidth: 15,
-                    minWidth: 10,
-                  }}
-                ></Image>
+          <Col
+            className="col-6 d-flex flex-column justify-content-evenly"
+            style={{ height: "100%" }}
+          >
+            <Row
+              className="d-flex justify-content-evenly align-items-center m-0"
+              style={{ height: "100%" }}
+            >
+              <Col
+                xs="auto"
+                className="d-flex justify-content-center gap-2 menuGrande"
+              >
+                <Home />
+                <Empresa />
+                <Informacoes />
+                <Contato />
               </Col>
               <Col
                 xs="auto"
-                className="d-flex col-md-auto align-items-center justify-content-center px-1"
+                className="d-flex justify-content-center menuPequeno w-100"
               >
-                <Form.Check
-                  type="switch"
-                  className="p-0"
-                  style={{ width: "3vw", minWidth: 10 }}
-                >
-                  <Form.Check.Input
-                    isValid
-                    style={{
-                      cursor: "pointer",
-                      width: "2vw",
-                      maxWidth: 20,
-                      minWidth: 10,
-                      height: "1vw",
-                      maxHeight: 9,
-                      minHeight: 5,
-                      marginTop: 10,
-                      marginLeft: 0,
-                    }}
-                    checked={theme === "dark"}
-                    onChange={toggleTheme}
-                  />
-                </Form.Check>
+                <Menu />
               </Col>
-              <Col className="d-flex justify-content-start p-0 col">
-                <Image
-                  src={luaNavbar}
-                  alt="sun_image"
-                  style={{
-                    filter: theme === "dark" ? "invert(1)" : "",
-                    width: "1.4vw",
-                    maxWidth: 18,
-                    minWidth: 8,
-                  }}
-                ></Image>
+              <Col xs="auto" className="d-flex justify-content-center">
+                <Buscador />
               </Col>
             </Row>
           </Col>
-        </Row>
-        <Row className="d-flex align-items-center m-0">
-          <Col>
-            <Menu />
+          <Col
+            className="col-3 d-flex flex-column justify-content-evenly solLuaCol"
+            style={{ height: "100%" }}
+          >
+            {/* <Row
+                className="d-flex justify-content-evenly align-items-center m-0 "
+                style={{ height: "100%" }}
+              > */}
+            {loggedUser ? (
+              <>
+                <Col className="col-md-auto d-flex justify-content-center gap-2 ">
+                  <Row className="d-flex align-items-center justify-content-end m-0">
+                    <Col xs="auto" className="px-1">
+                      <Perfil
+                        animationClass={animationClass}
+                        setAnimationClass={setAnimationClass}
+                      />
+                    </Col>
+                  </Row>
+                </Col>
+              </>
+            ) : (
+              <>
+                <Col className="col-md-auto d-flex justify-content-center gap-2 menuPerfil">
+                  <Row className="d-flex align-items-center justify-content-end m-0">
+                    <Col xs="auto" className="px-1">
+                      <CriarConta />
+                    </Col>
+                    <Col xs="auto" className="px-1">
+                      <Login />
+                    </Col>
+                  </Row>
+                </Col>
+                <Col
+                  xs="auto"
+                  className="d-flex justify-content-center menuPerfilPequeno w-100"
+                >
+                  <MenuPerfil />
+                </Col>
+              </>
+            )}
+
+            <Col xs="auto" className="d-flex justify-content-center">
+              {/* <Row className="d-flex justify-content-center">Saudação</Row> */}
+              <Row className="d-flex justify-content-center align-items-center">
+                <Col className="d-flex justify-content-end p-0 col">
+                  <Image
+                    src={solNavbar}
+                    alt="sun_image"
+                    style={{
+                      filter: theme === "dark" ? "invert(1)" : "",
+                      width: "1.4vw",
+                      maxWidth: 15,
+                      minWidth: 10,
+                    }}
+                  ></Image>
+                </Col>
+                <Col
+                  xs="auto solLua"
+                  className="d-flex col-md-auto align-items-center justify-content-center"
+                >
+                  <Form.Check
+                    type="switch"
+                    className="p-0"
+                    style={{ width: "3vw", minWidth: 10 }}
+                  >
+                    <Form.Check.Input
+                      isValid
+                      style={{
+                        cursor: "pointer",
+                        width: "2vw",
+                        maxWidth: 20,
+                        minWidth: 12,
+                        height: "1vw",
+                        maxHeight: 9,
+                        minHeight: 5,
+                        marginTop: 10,
+                        marginLeft: 0,
+                      }}
+                      checked={theme === "dark"}
+                      onChange={toggleTheme}
+                    />
+                  </Form.Check>
+                </Col>
+                <Col className="d-flex justify-content-start p-0 col">
+                  <Image
+                    src={luaNavbar}
+                    alt="sun_image"
+                    style={{
+                      filter: theme === "dark" ? "invert(1)" : "",
+                      width: "1.4vw",
+                      maxWidth: 18,
+                      minWidth: 9,
+                    }}
+                  ></Image>
+                </Col>
+              </Row>
+            </Col>
+            {/* </Row> */}
           </Col>
-          {loggedUser ? (
-            <Col>
-              <Row className="d-flex align-items-center justify-content-end m-0">
-                <Col xs="auto" className="px-1">
-                  <Perfil
-                    animationClass={animationClass}
-                    setAnimationClass={setAnimationClass}
-                  />
-                </Col>
-              </Row>
-            </Col>
-          ) : (
-            <Col>
-              <Row className="d-flex align-items-center justify-content-end m-0">
-                <Col xs="auto" className="px-1">
-                  <CriarConta />
-                </Col>
-                <Col xs="auto" className="px-1">
-                  <Login />
-                </Col>
-              </Row>
-            </Col>
-          )}
         </Row>
       </Col>
     </Navbar>

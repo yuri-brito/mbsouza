@@ -6,6 +6,8 @@ import { useState } from "react";
 function CarrosselHome() {
   const [controlsVis, setControlsVis] = useState(false);
 
+  //fazer chamada puxando os produtos em superdestaque
+
   return (
     <Carousel
       className="carrosselHome"
@@ -13,7 +15,7 @@ function CarrosselHome() {
       style={{
         width: "100%",
         marginInline: "auto",
-        marginTop: 85,
+        // marginTop: 400,
       }}
       controls={controlsVis}
       onMouseEnter={(e) => {

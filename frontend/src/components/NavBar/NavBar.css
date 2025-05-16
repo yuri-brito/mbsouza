@@ -50,7 +50,7 @@
   color: var(--bs-text-color);
 }
 .dropdownPerfil > button:hover {
-  background-color: transparent !important;
+  background-color: rgb(9, 183, 241) !important;
 }
 .dropdownPerfil > button:active {
   background-color: transparent !important;
@@ -71,6 +71,21 @@
   display: none;
 }
 
+.menuHorizontalButton{
+  font-size: 12px;
+  background-color: transparent !important;
+  color: var(--bs-text-color);
+  border-width: 1.5px;
+  font-weight: 500;
+}
+
+.menuHorizontalButton:hover{
+  background-color: rgb(9, 183, 241) !important;
+}
+.menuHorizontalButton:active {
+  background-color: transparent !important;
+}
+
 .dropdownMenu {
   display: inline-flex;
   border-radius: var(--bs-border-radius-sm);
@@ -82,7 +97,9 @@
   color: var(--bs-text-color);
   border-width: 1.5px;
 }
-.dropdownMenu > button:hover,
+.dropdownMenu > button:hover{
+   background-color: rgb(9, 183, 241) !important;
+}
 .dropdownMenu > button:active {
   background-color: transparent !important;
 }
@@ -110,6 +127,58 @@
 .criarContaModal > .modal-dialog {
   margin-bottom: 60px !important;
 }
+.solLua{
+  padding: 4px;
+}
+@media (max-width: 375px) {
+  .solLuaCol{
+    padding-inline: 2px;
+  }
+}
+
+
+.menuGrande{
+  display: flex !important;
+}
+.menuPequeno{
+  display: none !important;
+}
+.menuPerfil{
+display: flex !important;
+}
+.menuPerfilPequeno{
+display: none !important;
+}
+.textoLogin{
+  display: flex !important;
+}
+
+.criarContaButton:hover{
+  background-color: rgb(9, 183, 241) !important;
+}
+
+
+@media (max-width: 1065px) {
+.menuPerfil{
+  display: none !important;
+}
+.menuPerfilPequeno{
+  display: flex !important;
+}
+}
+@media (max-width: 790px) {
+.menuGrande{
+  display: none !important;
+}
+.menuPequeno{
+  display: flex !important;
+}
+.textoLogin{
+  display: none !important;
+}
+
+}
+
 @media (max-width: 330px) {
   .separadorTraco {
     top: 3px !important;
@@ -158,6 +227,7 @@
     padding-inline: 6px;
     padding-block: 3px;
   }
+
 
   .regrasSenha {
     font-size: 8.5px !important;
@@ -213,11 +283,7 @@
   height: 15px;
   font-size: 8px;
 }
-.labelCriarConta .form-control:focus ~ label,
-.labelCriarConta .form-control:not(:placeholder-shown) ~ label {
-  top: -6px; /* Muda a posição da label ao focar */
-  transition: all 0.3s ease-in-out;
-}
+
 
 /* CSS Icon erro ao criar */
 .bi-cloud-upload-fill {

@@ -19,3 +19,18 @@
     opacity: 1;
   }
 }
+@keyframes fadeout {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+.fadein {
+  animation: fadein 0.3s ease forwards;
+}
+
+.fadeout {
+  animation: fadeout 0.5s ease forwards;
+}
