@@ -4,8 +4,8 @@
   box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
   border-radius: 50%;
   color: var(--bs-body-color);
-  width: 5vw;
-  height: 5vw;
+  width: 4vw;
+  height: 4vw;
 }
 .carrosselHome > .carousel-control-next > .carousel-control-next-icon {
   background-image: url("../../assets/CarrosselHome/next_home.png");
@@ -13,8 +13,8 @@
   background-color: white;
   border-radius: 50%;
   color: var(--bs-body-color);
-  width: 5vw;
-  height: 5vw;
+  width: 4vw;
+  height: 4vw;
 }
 .carrosselHome > .carousel-control-prev,
 .carrosselHome > .carousel-control-next {
@@ -25,7 +25,7 @@
   background-color: var(--bs-body-bg) !important;
 }
 .carousel-indicators {
-  margin-bottom: 2vw !important;
+  margin-bottom: -2vw !important;
 }
 
 .carousel-indicators > button {
@@ -39,4 +39,13 @@
   /* background-color: var(--bs-body-color); */
 
   border: 1px var(--bs-body-color) solid !important;
+}
+.imgProduto{
+  width: 200px;
+}
+
+@media (max-width: 360px) {
+  .imgProduto{
+    width: 150px;
+  }
 }

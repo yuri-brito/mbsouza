@@ -4,6 +4,12 @@
 .nProdutos{
     font-size: 22px;
 }
+.titulos{
+    font-size: 25px;
+}
+.larguraCard{
+    width: 400px;
+}
 @media (max-width: 800px) {
     .hamburguer{
     font-size: 26px;
@@ -56,6 +62,9 @@
 .textos{
     font-size: 13px;
 }
+.larguraCard{
+    width: 350px;
+}
 }
 @media (max-width: 425px) {
     .hamburguer{
@@ -73,6 +82,9 @@
 .textos{
     font-size: 12px;
 }
+.larguraCard{
+    width: 340px;
+}
 }
 @media (max-width: 330px) {
     .hamburguer{
@@ -89,5 +101,8 @@
 }
 .textos{
     font-size: 11px;
+}
+.larguraCard{
+    width: 300px;
 }
 }

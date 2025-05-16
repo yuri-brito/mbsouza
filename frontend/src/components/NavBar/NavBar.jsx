@@ -19,8 +19,8 @@ import { useContext } from "react";
 import Perfil from "./Perfil";
 import CriarConta from "./CriarConta";
 import Login from "./Login";
-import MyLogo from "../../assets/logo.png";
-import MyLogow from "../../assets/logo.png";
+import MyLogo from "../../../public/logo.png";
+import MyLogow from "../../../public/logo.png";
 import { Link, useNavigate } from "react-router-dom";
 import SubNav from "../SubNav/SubNav";
 import Home from "./Home";
@@ -84,7 +84,7 @@ function NavBar({ theme, setTheme }) {
         position: "fixed",
         top: 0,
         width: "100%",
-        height: "11vw",
+        height: "9vw",
         minHeight: 90,
 
         zIndex: 999,
@@ -111,11 +111,11 @@ function NavBar({ theme, setTheme }) {
                 src={theme === "dark" ? MyLogow : MyLogo}
                 alt="logo"
                 style={{
-                  filter: theme === "dark" ? "invert(20)" : "",
-                  width: "12vw",
+                  // filter: theme === "dark" ? "invert(20)" : "",
+                  width: "9vw",
                   // height: 50,
                   maxWidth: 1000,
-                  minWidth: 60,
+                  minWidth: 70,
                 }}
               ></Image>
             </Link>

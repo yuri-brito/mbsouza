@@ -4,6 +4,7 @@ import NavBar from "../../components/NavBar/NavBar";
 import { useLocation, useNavigate } from "react-router-dom";
 import {
   Button,
+  Card,
   Col,
   Container,
   FloatingLabel,
@@ -19,6 +20,7 @@ import Footer from "../../components/Footer/Footer";
 import "./Home.css";
 import Whatsapp from "../../components/Whatsapp";
 import EmpresaPage from "../Empresa/EmpresaPage";
+import teste from "../../assets/teste.png";
 function Home({ theme }) {
   const { state, pathname } = useLocation();
   const navigate = useNavigate();
@@ -143,7 +145,13 @@ function Home({ theme }) {
   };
 
   return (
-    <div style={{ position: "relative", animation: "fadein 1.5s" }}>
+    <div
+      style={{
+        position: "relative",
+        animation: "fadein 1.5s",
+        marginBottom: 100,
+      }}
+    >
       <Modal onHide={handleClose} show={showModalBoasVindas}>
         <Modal.Header closeButton className="headerModalCadastro">
           {state && state.status === "conta ativada" ? (
@@ -639,7 +647,7 @@ function Home({ theme }) {
       </Modal>
 
       <>
-        <CarrosselHome />
+        <CarrosselHome theme={theme} />
 
         <Row
           className="d-flex justify-content-center"
@@ -702,14 +710,700 @@ function Home({ theme }) {
         </Row>
         <Row className="mt-4 mb-5 mx-0">
           <h2 className="titulos">Nossos Destaques</h2>
-          <p className="textos">
+          <p className="textos mb-5">
             Separamos produtos exclusivos pensando em você.
           </p>
+          <Container>
+            <Row className="gap-5">
+              <Col className="d-flex justify-content-center">
+                <a
+                  className="d-flex justify-content-center larguraCard"
+                  href="/produtoDetail"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  style={{ textDecoration: "none" }}
+                >
+                  <Card
+                    bg={theme === "dark" ? "dark" : "light"}
+                    className="p-0 larguraCard"
+                    style={{
+                      boxShadow: "rgba(0, 0, 0, 0.35) 0px 5px 15px",
+                    }}
+                  >
+                    <Card.Header className="titulos">Aquecedores</Card.Header>
+                    <Card.Body>
+                      <Col className="justify-content-center px-2">
+                        <Col className="mb-4 justify-content-center">
+                          <img
+                            className="d-block p-0 mx-auto imgProduto"
+                            src={teste}
+                            alt="Second slide"
+                            style={{ borderRadius: 6 }}
+                          />
+                        </Col>
+                        <Col className="d-flex flex-column justify-content-evenly ">
+                          <Row
+                            className="subtitulos mb-3"
+                            style={{ fontWeight: 700 }}
+                          >
+                            Aquecedor a Gás Rinnai – Rinnai – Linha Digital –
+                            REU E27 FEH
+                          </Row>
+                          <Row className="textos" style={{ textAlign: "left" }}>
+                            Mais conforto, segurança e qualidade na hora do
+                            banho, sem preocupações com a conta de luz no final
+                            do mês. Fabricado no Brasil, este aquecedor possui
+                            modulação de chama, sistemas de segurança
+                            integrados, exaustão forçada e controle digital de
+                            temperatura.
+                          </Row>
+                        </Col>
+                      </Col>
+                    </Card.Body>
+                    <Card.Footer className="textos" style={{ fontWeight: 700 }}>
+                      R$ 1.400,00
+                    </Card.Footer>
+                  </Card>
+                </a>
+              </Col>
+              <Col className="d-flex justify-content-center">
+                <a
+                  className="d-flex justify-content-center larguraCard"
+                  href="/produtoDetail"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  style={{ textDecoration: "none" }}
+                >
+                  <Card
+                    bg={theme === "dark" ? "dark" : "light"}
+                    className="p-0 larguraCard"
+                    style={{
+                      boxShadow: "rgba(0, 0, 0, 0.35) 0px 5px 15px",
+                    }}
+                  >
+                    <Card.Header className="titulos">Aquecedores</Card.Header>
+                    <Card.Body>
+                      <Col className="justify-content-center px-2">
+                        <Col className="mb-4 justify-content-center">
+                          <img
+                            className="d-block p-0 mx-auto imgProduto"
+                            src={teste}
+                            alt="Second slide"
+                            style={{ borderRadius: 6 }}
+                          />
+                        </Col>
+                        <Col className="d-flex flex-column justify-content-evenly ">
+                          <Row
+                            className="subtitulos mb-3"
+                            style={{ fontWeight: 700 }}
+                          >
+                            Aquecedor a Gás Rinnai – Rinnai – Linha Digital –
+                            REU E27 FEH
+                          </Row>
+                          <Row className="textos" style={{ textAlign: "left" }}>
+                            Mais conforto, segurança e qualidade na hora do
+                            banho, sem preocupações com a conta de luz no final
+                            do mês. Fabricado no Brasil, este aquecedor possui
+                            modulação de chama, sistemas de segurança
+                            integrados, exaustão forçada e controle digital de
+                            temperatura.
+                          </Row>
+                        </Col>
+                      </Col>
+                    </Card.Body>
+                    <Card.Footer className="textos" style={{ fontWeight: 700 }}>
+                      R$ 1.400,00
+                    </Card.Footer>
+                  </Card>
+                </a>
+              </Col>
+              <Col className="d-flex justify-content-center">
+                <a
+                  className="d-flex justify-content-center larguraCard"
+                  href="/produtoDetail"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  style={{ textDecoration: "none" }}
+                >
+                  <Card
+                    bg={theme === "dark" ? "dark" : "light"}
+                    className="p-0 larguraCard"
+                    style={{
+                      boxShadow: "rgba(0, 0, 0, 0.35) 0px 5px 15px",
+                    }}
+                  >
+                    <Card.Header className="titulos">Aquecedores</Card.Header>
+                    <Card.Body>
+                      <Col className="justify-content-center px-2">
+                        <Col className="mb-4 justify-content-center">
+                          <img
+                            className="d-block p-0 mx-auto imgProduto"
+                            src={teste}
+                            alt="Second slide"
+                            style={{ borderRadius: 6 }}
+                          />
+                        </Col>
+                        <Col className="d-flex flex-column justify-content-evenly ">
+                          <Row
+                            className="subtitulos mb-3"
+                            style={{ fontWeight: 700 }}
+                          >
+                            Aquecedor a Gás Rinnai – Rinnai – Linha Digital –
+                            REU E27 FEH
+                          </Row>
+                          <Row className="textos" style={{ textAlign: "left" }}>
+                            Mais conforto, segurança e qualidade na hora do
+                            banho, sem preocupações com a conta de luz no final
+                            do mês. Fabricado no Brasil, este aquecedor possui
+                            modulação de chama, sistemas de segurança
+                            integrados, exaustão forçada e controle digital de
+                            temperatura.
+                          </Row>
+                        </Col>
+                      </Col>
+                    </Card.Body>
+                    <Card.Footer className="textos" style={{ fontWeight: 700 }}>
+                      R$ 1.400,00
+                    </Card.Footer>
+                  </Card>
+                </a>
+              </Col>
+              <Col className="d-flex justify-content-center">
+                <a
+                  className="d-flex justify-content-center larguraCard"
+                  href="/produtoDetail"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  style={{ textDecoration: "none" }}
+                >
+                  <Card
+                    bg={theme === "dark" ? "dark" : "light"}
+                    className="p-0 larguraCard"
+                    style={{
+                      boxShadow: "rgba(0, 0, 0, 0.35) 0px 5px 15px",
+                    }}
+                  >
+                    <Card.Header className="titulos">Aquecedores</Card.Header>
+                    <Card.Body>
+                      <Col className="justify-content-center px-2">
+                        <Col className="mb-4 justify-content-center">
+                          <img
+                            className="d-block p-0 mx-auto imgProduto"
+                            src={teste}
+                            alt="Second slide"
+                            style={{ borderRadius: 6 }}
+                          />
+                        </Col>
+                        <Col className="d-flex flex-column justify-content-evenly ">
+                          <Row
+                            className="subtitulos mb-3"
+                            style={{ fontWeight: 700 }}
+                          >
+                            Aquecedor a Gás Rinnai – Rinnai – Linha Digital –
+                            REU E27 FEH
+                          </Row>
+                          <Row className="textos" style={{ textAlign: "left" }}>
+                            Mais conforto, segurança e qualidade na hora do
+                            banho, sem preocupações com a conta de luz no final
+                            do mês. Fabricado no Brasil, este aquecedor possui
+                            modulação de chama, sistemas de segurança
+                            integrados, exaustão forçada e controle digital de
+                            temperatura.
+                          </Row>
+                        </Col>
+                      </Col>
+                    </Card.Body>
+                    <Card.Footer className="textos" style={{ fontWeight: 700 }}>
+                      R$ 1.400,00
+                    </Card.Footer>
+                  </Card>
+                </a>
+              </Col>
+              <Col className="d-flex justify-content-center">
+                <a
+                  className="d-flex justify-content-center larguraCard"
+                  href="/produtoDetail"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  style={{ textDecoration: "none" }}
+                >
+                  <Card
+                    bg={theme === "dark" ? "dark" : "light"}
+                    className="p-0 larguraCard"
+                    style={{
+                      boxShadow: "rgba(0, 0, 0, 0.35) 0px 5px 15px",
+                    }}
+                  >
+                    <Card.Header className="titulos">Aquecedores</Card.Header>
+                    <Card.Body>
+                      <Col className="justify-content-center px-2">
+                        <Col className="mb-4 justify-content-center">
+                          <img
+                            className="d-block p-0 mx-auto imgProduto"
+                            src={teste}
+                            alt="Second slide"
+                            style={{ borderRadius: 6 }}
+                          />
+                        </Col>
+                        <Col className="d-flex flex-column justify-content-evenly ">
+                          <Row
+                            className="subtitulos mb-3"
+                            style={{ fontWeight: 700 }}
+                          >
+                            Aquecedor a Gás Rinnai – Rinnai – Linha Digital –
+                            REU E27 FEH
+                          </Row>
+                          <Row className="textos" style={{ textAlign: "left" }}>
+                            Mais conforto, segurança e qualidade na hora do
+                            banho, sem preocupações com a conta de luz no final
+                            do mês. Fabricado no Brasil, este aquecedor possui
+                            modulação de chama, sistemas de segurança
+                            integrados, exaustão forçada e controle digital de
+                            temperatura.
+                          </Row>
+                        </Col>
+                      </Col>
+                    </Card.Body>
+                    <Card.Footer className="textos" style={{ fontWeight: 700 }}>
+                      R$ 1.400,00
+                    </Card.Footer>
+                  </Card>
+                </a>
+              </Col>
+              <Col className="d-flex justify-content-center">
+                <a
+                  className="d-flex justify-content-center larguraCard"
+                  href="/produtoDetail"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  style={{ textDecoration: "none" }}
+                >
+                  <Card
+                    bg={theme === "dark" ? "dark" : "light"}
+                    className="p-0 larguraCard"
+                    style={{
+                      boxShadow: "rgba(0, 0, 0, 0.35) 0px 5px 15px",
+                    }}
+                  >
+                    <Card.Header className="titulos">Aquecedores</Card.Header>
+                    <Card.Body>
+                      <Col className="justify-content-center px-2">
+                        <Col className="mb-4 justify-content-center">
+                          <img
+                            className="d-block p-0 mx-auto imgProduto"
+                            src={teste}
+                            alt="Second slide"
+                            style={{ borderRadius: 6 }}
+                          />
+                        </Col>
+                        <Col className="d-flex flex-column justify-content-evenly ">
+                          <Row
+                            className="subtitulos mb-3"
+                            style={{ fontWeight: 700 }}
+                          >
+                            Aquecedor a Gás Rinnai – Rinnai – Linha Digital –
+                            REU E27 FEH
+                          </Row>
+                          <Row className="textos" style={{ textAlign: "left" }}>
+                            Mais conforto, segurança e qualidade na hora do
+                            banho, sem preocupações com a conta de luz no final
+                            do mês. Fabricado no Brasil, este aquecedor possui
+                            modulação de chama, sistemas de segurança
+                            integrados, exaustão forçada e controle digital de
+                            temperatura.
+                          </Row>
+                        </Col>
+                      </Col>
+                    </Card.Body>
+                    <Card.Footer className="textos" style={{ fontWeight: 700 }}>
+                      R$ 1.400,00
+                    </Card.Footer>
+                  </Card>
+                </a>
+              </Col>
+              <Col className="d-flex justify-content-center">
+                <a
+                  className="d-flex justify-content-center larguraCard"
+                  href="/produtoDetail"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  style={{ textDecoration: "none" }}
+                >
+                  <Card
+                    bg={theme === "dark" ? "dark" : "light"}
+                    className="p-0 larguraCard"
+                    style={{
+                      boxShadow: "rgba(0, 0, 0, 0.35) 0px 5px 15px",
+                    }}
+                  >
+                    <Card.Header className="titulos">Aquecedores</Card.Header>
+                    <Card.Body>
+                      <Col className="justify-content-center px-2">
+                        <Col className="mb-4 justify-content-center">
+                          <img
+                            className="d-block p-0 mx-auto imgProduto"
+                            src={teste}
+                            alt="Second slide"
+                            style={{ borderRadius: 6 }}
+                          />
+                        </Col>
+                        <Col className="d-flex flex-column justify-content-evenly ">
+                          <Row
+                            className="subtitulos mb-3"
+                            style={{ fontWeight: 700 }}
+                          >
+                            Aquecedor a Gás Rinnai – Rinnai – Linha Digital –
+                            REU E27 FEH
+                          </Row>
+                          <Row className="textos" style={{ textAlign: "left" }}>
+                            Mais conforto, segurança e qualidade na hora do
+                            banho, sem preocupações com a conta de luz no final
+                            do mês. Fabricado no Brasil, este aquecedor possui
+                            modulação de chama, sistemas de segurança
+                            integrados, exaustão forçada e controle digital de
+                            temperatura.
+                          </Row>
+                        </Col>
+                      </Col>
+                    </Card.Body>
+                    <Card.Footer className="textos" style={{ fontWeight: 700 }}>
+                      R$ 1.400,00
+                    </Card.Footer>
+                  </Card>
+                </a>
+              </Col>
+              <Col className="d-flex justify-content-center">
+                <a
+                  className="d-flex justify-content-center larguraCard"
+                  href="/produtoDetail"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  style={{ textDecoration: "none" }}
+                >
+                  <Card
+                    bg={theme === "dark" ? "dark" : "light"}
+                    className="p-0 larguraCard"
+                    style={{
+                      boxShadow: "rgba(0, 0, 0, 0.35) 0px 5px 15px",
+                    }}
+                  >
+                    <Card.Header className="titulos">Aquecedores</Card.Header>
+                    <Card.Body>
+                      <Col className="justify-content-center px-2">
+                        <Col className="mb-4 justify-content-center">
+                          <img
+                            className="d-block p-0 mx-auto imgProduto"
+                            src={teste}
+                            alt="Second slide"
+                            style={{ borderRadius: 6 }}
+                          />
+                        </Col>
+                        <Col className="d-flex flex-column justify-content-evenly ">
+                          <Row
+                            className="subtitulos mb-3"
+                            style={{ fontWeight: 700 }}
+                          >
+                            Aquecedor a Gás Rinnai – Rinnai – Linha Digital –
+                            REU E27 FEH
+                          </Row>
+                          <Row className="textos" style={{ textAlign: "left" }}>
+                            Mais conforto, segurança e qualidade na hora do
+                            banho, sem preocupações com a conta de luz no final
+                            do mês. Fabricado no Brasil, este aquecedor possui
+                            modulação de chama, sistemas de segurança
+                            integrados, exaustão forçada e controle digital de
+                            temperatura.
+                          </Row>
+                        </Col>
+                      </Col>
+                    </Card.Body>
+                    <Card.Footer className="textos" style={{ fontWeight: 700 }}>
+                      R$ 1.400,00
+                    </Card.Footer>
+                  </Card>
+                </a>
+              </Col>
+            </Row>
+          </Container>
           {/* colocar o looping do sprodutos em destaque */}
         </Row>
         <Row className="mt-4 mb-5 mx-0">
-          <h2 className="titulos">Novidades em nosso estoque</h2>
-          <p className="textos">Últimas novidades do mercado de aquecedores.</p>
+          <Row
+            style={{
+              backgroundColor:
+                theme === "dark" ? "rgb(0, 63, 106)" : "rgb(0, 153, 192)",
+              height: "auto",
+              marginTop: 100,
+              marginInline: 0,
+              color: "white",
+              marginBottom: 50,
+              padding: "30px 16px",
+            }}
+          >
+            <h2 className="titulos">Novidades em nosso estoque</h2>
+            <p className="textos ">
+              Últimas novidades do mercado de aquecedores.
+            </p>
+          </Row>
+          <Container>
+            <Row className="gap-5">
+              <Col className="d-flex justify-content-center">
+                <a
+                  className="d-flex justify-content-center larguraCard"
+                  href="/produtoDetail"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  style={{ textDecoration: "none" }}
+                >
+                  <Card
+                    bg={theme === "dark" ? "dark" : "light"}
+                    className="p-0 larguraCard"
+                    style={{
+                      boxShadow: "rgba(0, 0, 0, 0.35) 0px 5px 15px",
+                    }}
+                  >
+                    <Card.Header className="titulos">Aquecedores</Card.Header>
+                    <Card.Body>
+                      <Col className="justify-content-center px-2">
+                        <Col className="mb-4 justify-content-center">
+                          <img
+                            className="d-block p-0 mx-auto imgProduto"
+                            src={teste}
+                            alt="Second slide"
+                            style={{ borderRadius: 6 }}
+                          />
+                        </Col>
+                        <Col className="d-flex flex-column justify-content-evenly ">
+                          <Row
+                            className="subtitulos mb-3"
+                            style={{ fontWeight: 700 }}
+                          >
+                            Aquecedor a Gás Rinnai – Rinnai – Linha Digital –
+                            REU E27 FEH
+                          </Row>
+                          <Row className="textos" style={{ textAlign: "left" }}>
+                            Mais conforto, segurança e qualidade na hora do
+                            banho, sem preocupações com a conta de luz no final
+                            do mês. Fabricado no Brasil, este aquecedor possui
+                            modulação de chama, sistemas de segurança
+                            integrados, exaustão forçada e controle digital de
+                            temperatura.
+                          </Row>
+                        </Col>
+                      </Col>
+                    </Card.Body>
+                    <Card.Footer className="textos" style={{ fontWeight: 700 }}>
+                      R$ 1.400,00
+                    </Card.Footer>
+                  </Card>
+                </a>
+              </Col>
+              <Col className="d-flex justify-content-center">
+                <a
+                  className="d-flex justify-content-center larguraCard"
+                  href="/produtoDetail"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  style={{ textDecoration: "none" }}
+                >
+                  <Card
+                    bg={theme === "dark" ? "dark" : "light"}
+                    className="p-0 larguraCard"
+                    style={{
+                      boxShadow: "rgba(0, 0, 0, 0.35) 0px 5px 15px",
+                    }}
+                  >
+                    <Card.Header className="titulos">Aquecedores</Card.Header>
+                    <Card.Body>
+                      <Col className="justify-content-center px-2">
+                        <Col className="mb-4 justify-content-center">
+                          <img
+                            className="d-block p-0 mx-auto imgProduto"
+                            src={teste}
+                            alt="Second slide"
+                            style={{ borderRadius: 6 }}
+                          />
+                        </Col>
+                        <Col className="d-flex flex-column justify-content-evenly ">
+                          <Row
+                            className="subtitulos mb-3"
+                            style={{ fontWeight: 700 }}
+                          >
+                            Aquecedor a Gás Rinnai – Rinnai – Linha Digital –
+                            REU E27 FEH
+                          </Row>
+                          <Row className="textos" style={{ textAlign: "left" }}>
+                            Mais conforto, segurança e qualidade na hora do
+                            banho, sem preocupações com a conta de luz no final
+                            do mês. Fabricado no Brasil, este aquecedor possui
+                            modulação de chama, sistemas de segurança
+                            integrados, exaustão forçada e controle digital de
+                            temperatura.
+                          </Row>
+                        </Col>
+                      </Col>
+                    </Card.Body>
+                    <Card.Footer className="textos" style={{ fontWeight: 700 }}>
+                      R$ 1.400,00
+                    </Card.Footer>
+                  </Card>
+                </a>
+              </Col>
+              <Col className="d-flex justify-content-center">
+                <a
+                  className="d-flex justify-content-center larguraCard"
+                  href="/produtoDetail"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  style={{ textDecoration: "none" }}
+                >
+                  <Card
+                    bg={theme === "dark" ? "dark" : "light"}
+                    className="p-0 larguraCard"
+                    style={{
+                      boxShadow: "rgba(0, 0, 0, 0.35) 0px 5px 15px",
+                    }}
+                  >
+                    <Card.Header className="titulos">Aquecedores</Card.Header>
+                    <Card.Body>
+                      <Col className="justify-content-center px-2">
+                        <Col className="mb-4 justify-content-center">
+                          <img
+                            className="d-block p-0 mx-auto imgProduto"
+                            src={teste}
+                            alt="Second slide"
+                            style={{ borderRadius: 6 }}
+                          />
+                        </Col>
+                        <Col className="d-flex flex-column justify-content-evenly ">
+                          <Row
+                            className="subtitulos mb-3"
+                            style={{ fontWeight: 700 }}
+                          >
+                            Aquecedor a Gás Rinnai – Rinnai – Linha Digital –
+                            REU E27 FEH
+                          </Row>
+                          <Row className="textos" style={{ textAlign: "left" }}>
+                            Mais conforto, segurança e qualidade na hora do
+                            banho, sem preocupações com a conta de luz no final
+                            do mês. Fabricado no Brasil, este aquecedor possui
+                            modulação de chama, sistemas de segurança
+                            integrados, exaustão forçada e controle digital de
+                            temperatura.
+                          </Row>
+                        </Col>
+                      </Col>
+                    </Card.Body>
+                    <Card.Footer className="textos" style={{ fontWeight: 700 }}>
+                      R$ 1.400,00
+                    </Card.Footer>
+                  </Card>
+                </a>
+              </Col>
+              <Col className="d-flex justify-content-center">
+                <a
+                  className="d-flex justify-content-center larguraCard"
+                  href="/produtoDetail"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  style={{ textDecoration: "none" }}
+                >
+                  <Card
+                    bg={theme === "dark" ? "dark" : "light"}
+                    className="p-0 larguraCard"
+                    style={{
+                      boxShadow: "rgba(0, 0, 0, 0.35) 0px 5px 15px",
+                    }}
+                  >
+                    <Card.Header className="titulos">Aquecedores</Card.Header>
+                    <Card.Body>
+                      <Col className="justify-content-center px-2">
+                        <Col className="mb-4 justify-content-center">
+                          <img
+                            className="d-block p-0 mx-auto imgProduto"
+                            src={teste}
+                            alt="Second slide"
+                            style={{ borderRadius: 6 }}
+                          />
+                        </Col>
+                        <Col className="d-flex flex-column justify-content-evenly ">
+                          <Row
+                            className="subtitulos mb-3"
+                            style={{ fontWeight: 700 }}
+                          >
+                            Aquecedor a Gás Rinnai – Rinnai – Linha Digital –
+                            REU E27 FEH
+                          </Row>
+                          <Row className="textos" style={{ textAlign: "left" }}>
+                            Mais conforto, segurança e qualidade na hora do
+                            banho, sem preocupações com a conta de luz no final
+                            do mês. Fabricado no Brasil, este aquecedor possui
+                            modulação de chama, sistemas de segurança
+                            integrados, exaustão forçada e controle digital de
+                            temperatura.
+                          </Row>
+                        </Col>
+                      </Col>
+                    </Card.Body>
+                    <Card.Footer className="textos" style={{ fontWeight: 700 }}>
+                      R$ 1.400,00
+                    </Card.Footer>
+                  </Card>
+                </a>
+              </Col>
+              <Col className="d-flex justify-content-center">
+                <a
+                  className="d-flex justify-content-center larguraCard"
+                  href="/produtoDetail"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  style={{ textDecoration: "none" }}
+                >
+                  <Card
+                    bg={theme === "dark" ? "dark" : "light"}
+                    className="p-0 larguraCard"
+                    style={{
+                      boxShadow: "rgba(0, 0, 0, 0.35) 0px 5px 15px",
+                    }}
+                  >
+                    <Card.Header className="titulos">Aquecedores</Card.Header>
+                    <Card.Body>
+                      <Col className="justify-content-center px-2">
+                        <Col className="mb-4 justify-content-center">
+                          <img
+                            className="d-block p-0 mx-auto imgProduto"
+                            src={teste}
+                            alt="Second slide"
+                            style={{ borderRadius: 6 }}
+                          />
+                        </Col>
+                        <Col className="d-flex flex-column justify-content-evenly ">
+                          <Row
+                            className="subtitulos mb-3"
+                            style={{ fontWeight: 700 }}
+                          >
+                            Aquecedor a Gás Rinnai – Rinnai – Linha Digital –
+                            REU E27 FEH
+                          </Row>
+                          <Row className="textos" style={{ textAlign: "left" }}>
+                            Mais conforto, segurança e qualidade na hora do
+                            banho, sem preocupações com a conta de luz no final
+                            do mês. Fabricado no Brasil, este aquecedor possui
+                            modulação de chama, sistemas de segurança
+                            integrados, exaustão forçada e controle digital de
+                            temperatura.
+                          </Row>
+                        </Col>
+                      </Col>
+                    </Card.Body>
+                    <Card.Footer className="textos" style={{ fontWeight: 700 }}>
+                      R$ 1.400,00
+                    </Card.Footer>
+                  </Card>
+                </a>
+              </Col>
+            </Row>
+          </Container>
           {/* colocar o looping dos últimos produtos incluídos */}
         </Row>
       </>

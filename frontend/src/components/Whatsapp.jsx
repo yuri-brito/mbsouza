@@ -14,7 +14,8 @@ const Whatsapp = (props) => {
         top: 150,
         right: 10,
         zIndex: 999,
-        width: "10vw",
+        width: "12vw",
+        minWidth: 60,
       }}
     >
       <Image
