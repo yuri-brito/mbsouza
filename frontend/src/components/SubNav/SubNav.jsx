@@ -6,7 +6,7 @@ const SubNav = ({ theme }) => {
   const navigate = useNavigate();
   return (
     <div
-      className="footerWrap row  d-flex align-items-center"
+      className="subWrap row  d-flex align-items-center"
       style={{
         width: "80%",
         backgroundColor: "var(--bs-body-bg)",
@@ -23,7 +23,7 @@ const SubNav = ({ theme }) => {
       <Row className="d-flex m-0  justify-content-evenly align-items-center wraper">
         <Col
           xs="auto"
-          className="mx-4 meioRedes contatoEmail"
+          className="mx-4 meioSub contatoEmail"
           onClick={() => navigate("/Contato")}
           style={{ cursor: "pointer" }}
         >
@@ -34,7 +34,7 @@ const SubNav = ({ theme }) => {
           ></i>{" "}
           mbsouza@gmail.com...
         </Col>
-        <Col xs="auto" className="mx-4 meioRedes">
+        <Col xs="auto" className="mx-4 meioSub">
           {" "}
           <a
             href="https://wa.me/5521969991819?text=Ol%C3%A1%2C%20estou%20interessado%20em%20seus%20produtos."
@@ -57,7 +57,7 @@ const SubNav = ({ theme }) => {
             </i>
           </a>
         </Col>
-        {/* <Col xs="auto" className="mx-4 meioRedes">
+        {/* <Col xs="auto" className="mx-4 meioSub">
           <i className="bi bi-twitter-x"></i> Twitter-x
         </Col> */}
       </Row>
