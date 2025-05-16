@@ -638,85 +638,81 @@ function Home({ theme }) {
         </Form>
       </Modal>
 
-      {pathname === "/" && (
-        <>
-          <CarrosselHome />
+      <>
+        <CarrosselHome />
 
-          <Row
-            className="d-flex justify-content-center"
-            style={{
-              backgroundColor:
-                theme === "dark" ? "rgb(0, 63, 106)" : "rgb(0, 153, 192)",
-              height: "auto",
-              marginTop: 100,
-              marginInline: 0,
-              color: "white",
-              marginBottom: 50,
-              padding: "30px 16px",
-            }}
-          >
-            <Col xs={12}>
-              <h2 className="mt-4 mb-4 titulos">
-                MB Souza é garantia de qualidade em Aquecedores e Boilers no Rio
-                de Janeiro
-              </h2>
-              <p
-                className="textos"
-                style={{ maxWidth: "600px", margin: "0 auto" }}
+        <Row
+          className="d-flex justify-content-center"
+          style={{
+            backgroundColor:
+              theme === "dark" ? "rgb(0, 63, 106)" : "rgb(0, 153, 192)",
+            height: "auto",
+            marginTop: 100,
+            marginInline: 0,
+            color: "white",
+            marginBottom: 50,
+            padding: "30px 16px",
+          }}
+        >
+          <Col xs={12}>
+            <h2 className="mt-4 mb-4 titulos">
+              MB Souza é garantia de qualidade em Aquecedores e Boilers no Rio
+              de Janeiro
+            </h2>
+            <p
+              className="textos"
+              style={{ maxWidth: "600px", margin: "0 auto" }}
+            >
+              A MB Souza é sinônimo de confiança e experiência em instalações de
+              aquecedores e boilers. Com um histórico de mais de 25 anos, sempre
+              estivemos na vanguarda em soluções aquecedoras com os princípios
+              técnicos de excelência, segurança e eficiência.
+            </p>
+            <div
+              className="mt-3"
+              style={{ display: "flex", justifyContent: "center" }}
+            >
+              <a
+                href="https://wa.me/5521969991819?text=Ol%C3%A1%2C%20estou%20interessado%20em%20seus%20produtos."
+                target="_blank"
+                rel="noopener noreferrer"
+                style={{ textDecoration: "none", color: "inherit" }}
               >
-                A MB Souza é sinônimo de confiança e experiência em instalações
-                de aquecedores e boilers. Com um histórico de mais de 25 anos,
-                sempre estivemos na vanguarda em soluções aquecedoras com os
-                princípios técnicos de excelência, segurança e eficiência.
-              </p>
-              <div
-                className="mt-3"
-                style={{ display: "flex", justifyContent: "center" }}
-              >
-                <a
-                  href="https://wa.me/5521969991819?text=Ol%C3%A1%2C%20estou%20interessado%20em%20seus%20produtos."
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  style={{ textDecoration: "none", color: "inherit" }}
+                <Button
+                  variant="light"
+                  style={{ width: "100%", maxWidth: 200, fontSize: 14 }}
                 >
-                  <Button
-                    variant="light"
-                    style={{ width: "100%", maxWidth: 200, fontSize: 14 }}
+                  <i
+                    className="bi bi-whatsapp icon"
+                    style={{ fontWeight: "bold" }}
+                  ></i>{" "}
+                  <i
+                    className="contatoZap"
+                    style={{
+                      fontStyle: "normal",
+                      fontWeight: 450,
+                    }}
                   >
-                    <i
-                      className="bi bi-whatsapp icon"
-                      style={{ fontWeight: "bold" }}
-                    ></i>{" "}
-                    <i
-                      className="contatoZap"
-                      style={{
-                        fontStyle: "normal",
-                        fontWeight: 450,
-                      }}
-                    >
-                      {"Whatsapp"}
-                    </i>
-                  </Button>
-                </a>
-              </div>
-            </Col>
-          </Row>
-          <Row className="mt-4 mb-5 mx-0">
-            <h2 className="titulos">Nossos Destaques</h2>
-            <p className="textos">
-              Separamos produtos exclusivos pensando em você.
-            </p>
-            {/* colocar o looping do sprodutos em destaque */}
-          </Row>
-          <Row className="mt-4 mb-5 mx-0">
-            <h2 className="titulos">Novidades em nosso estoque</h2>
-            <p className="textos">
-              Últimas novidades do mercado de aquecedores.
-            </p>
-            {/* colocar o looping dos últimos produtos incluídos */}
-          </Row>
-        </>
-      )}
+                    {"Whatsapp"}
+                  </i>
+                </Button>
+              </a>
+            </div>
+          </Col>
+        </Row>
+        <Row className="mt-4 mb-5 mx-0">
+          <h2 className="titulos">Nossos Destaques</h2>
+          <p className="textos">
+            Separamos produtos exclusivos pensando em você.
+          </p>
+          {/* colocar o looping do sprodutos em destaque */}
+        </Row>
+        <Row className="mt-4 mb-5 mx-0">
+          <h2 className="titulos">Novidades em nosso estoque</h2>
+          <p className="textos">Últimas novidades do mercado de aquecedores.</p>
+          {/* colocar o looping dos últimos produtos incluídos */}
+        </Row>
+      </>
 
       {pathname === "/ProfilePage" && <ProfilePage />}
       {/* <Link to={"/pagamento"}>Pagamentos</Link> */}
