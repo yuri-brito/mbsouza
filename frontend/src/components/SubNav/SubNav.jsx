@@ -20,7 +20,7 @@ const SubNav = ({ theme }) => {
         borderTop: "1px solid var(--bs-body-color)",
       }}
     >
-      <Row className="d-flex m-0  justify-content-evenly align-items-center wraper">
+      <Row className="d-flex m-0  justify-content-evenly align-items-center wraper flex-nowrap">
         <Col
           xs="auto"
           className="mx-4 meioSub contatoEmail"
