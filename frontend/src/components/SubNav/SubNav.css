@@ -16,7 +16,7 @@
   margin-top: 95px;
 }
 }
-@media (max-width: 610px) {
+@media (max-width: 725px) {
   .subWrap {
     font-size: 12px !important;
   }
@@ -33,19 +33,19 @@
     margin-inline: 18px !important;
   }
 }
-@media (max-width: 530px) {
+@media (max-width: 630px) {
 
   .meioSub {
     margin-inline: 14px !important;
   }
 }
-@media (max-width: 510px) {
+@media (max-width: 610px) {
 
   .meioSub {
     margin-inline: 10px !important;
   }
 }
-@media (max-width: 490px) {
+@media (max-width: 585px) {
 
   .meioSub {
     margin-inline: 0px !important;
@@ -53,7 +53,7 @@
   }
 
 }
-@media (max-width: 430px) {
+@media (max-width: 510px) {
   .subWrap {
     width: 90% !important;
   }
@@ -63,7 +63,7 @@
   
 }
 
-@media (max-width: 422px) {
+@media (max-width: 440px) {
   .icon{
     font-size: 18px;
   }
@@ -75,7 +75,7 @@
   }
  
 }
-@media (max-width: 330px) {
+@media (max-width: 382px) {
   .icon{
     font-size: 15px;
   }
@@ -84,6 +84,24 @@
   }
   .contatoZap{
     font-size: 9px;
+  }
+ 
+}
+@media (max-width: 350px) {
+  .subWrap {
+    width: 95% !important;
+  }
+  .wraper{
+    padding-inline: 4px !important;
+  }
+  .icon{
+    font-size: 12px;
+  }
+  .contatoEmail{
+    font-size: 10px;
+  }
+  .contatoZap{
+    font-size: 8px;
   }
  
 }

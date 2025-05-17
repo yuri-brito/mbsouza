@@ -221,7 +221,7 @@ function ContatoPage({ theme }) {
           <Col
             xs={12}
             md={6}
-            className="px-4 mt-5 mt-md-0 "
+            className="px-3 mt-5 mt-md-0 "
             style={{
               border: "1px solid #dee2e6",
               height: 140,
@@ -234,16 +234,20 @@ function ContatoPage({ theme }) {
             <Row className="justify-content-center subtitulo m-0 mb-3">
               Informações de contato
             </Row>
-            <Row className="textos m-0 mb-2">
+            <Row className="textos justify-content-center m-0 mb-2">
               Entre em contato por e-mail ou Whatsapp
             </Row>
-            <Row className="textos justify-content-start m-0">
-              <b className="col-auto">Whatsapp:</b>{" "}
-              <i className="col-auto">(21) 96999-1819</i>
-            </Row>
-            <Row className="textos justify-content-start m-0">
-              <b className="col-auto">Email:</b>{" "}
-              <i className="col-auto">mbsouza@gmail.com</i>
+            <Row className="justify-content-center m-0 p-0">
+              <Row className="textos justify-content-start m-0">
+                <b className="col-auto p-0 pe-1">Whatsapp:</b>{" "}
+                <i className="col-auto p-0 ps-1">(21) 96999-1819</i>
+              </Row>
+              <Row className="textos justify-content-start m-0 flex-nowrap">
+                <b className="col-auto p-0 pe-1">Email:</b>{" "}
+                <i className="col-auto p-0 ps-1 ">
+                  mbs.tratamentotermico@gmail.com
+                </i>
+              </Row>
             </Row>
           </Col>
         </Row>

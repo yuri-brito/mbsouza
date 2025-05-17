@@ -32,7 +32,7 @@ const SubNav = ({ theme }) => {
             className="bi bi-envelope-at icon"
             style={{ fontWeight: "bold" }}
           ></i>{" "}
-          mbsouza@gmail.com...
+          mbs.tratamentotermico@gmail.com
         </Col>
         <Col xs="auto" className="mx-4 meioSub">
           {" "}
