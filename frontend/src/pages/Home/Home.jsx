@@ -1408,7 +1408,6 @@ function Home({ theme }) {
         </Row>
       </>
 
-      {pathname === "/ProfilePage" && <ProfilePage />}
       {/* <Link to={"/pagamento"}>Pagamentos</Link> */}
     </div>
   );

@@ -1235,7 +1235,7 @@ const ProfilePage = () => {
       <Row
         className="rowProfile"
         style={{
-          width: "60vw",
+          width: "100%",
 
           marginInline: "auto",
           marginTop: 100,
@@ -1244,7 +1244,7 @@ const ProfilePage = () => {
       >
         <Card
           style={{
-            width: "100%",
+            width: "80%",
             marginInline: "auto",
             paddingInline: 0,
             boxShadow:

@@ -14,6 +14,8 @@ import {
 import { Link, Navigate, useLocation, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../contexts/authContext";
 import { useRef, useState } from "react";
+import api from "../../api/api";
+import { SpinnerDotted } from "spinners-react";
 
 function MenuPerfil() {
   const { loggedUser, setLoggedUser } = useContext(AuthContext);
@@ -279,7 +281,7 @@ function MenuPerfil() {
     setShowLogin(false);
   };
   const handleChangeLogin = (e) => {
-    setFormLogin({ ...form, [e.target.name]: e.target.value });
+    setFormLogin({ ...formLogin, [e.target.name]: e.target.value });
     setUniqueValid();
     setUniqueErrorMsg("");
     setSenhaErrorMsg("");
@@ -302,7 +304,7 @@ function MenuPerfil() {
         return;
       }
 
-      const response = await api.post("/usuario/login", form);
+      const response = await api.post("/usuario/login", formLogin);
       setLoggedUser({ ...response.data });
       localStorage.setItem("loggedUser", JSON.stringify(response.data));
       setTentativas(0);
@@ -328,7 +330,7 @@ function MenuPerfil() {
     e.stopPropagation();
     try {
       setIsLoadingLogin(true);
-      const res = await api.put("/usuario/recuperar", form);
+      const res = await api.put("/usuario/recuperar", formLogin);
 
       if (res.status === 201) {
         setShowActiveMsgLogin(true);
@@ -407,7 +409,7 @@ function MenuPerfil() {
           </Row>
         }
         size="sm"
-        align="middle"
+        align="end"
       >
         <Dropdown.Item
           eventKey="0"
@@ -1205,7 +1207,7 @@ function MenuPerfil() {
                         type="submit"
                         style={{ fontSize: 11 }}
                         onClick={handleSubmitForgot}
-                        disabled={form.unique === ""}
+                        disabled={formLogin.unique === ""}
                       >
                         <i className="bi bi-person-plus"></i> Recuperar
                       </Button>
@@ -1245,7 +1247,7 @@ function MenuPerfil() {
                         type="text"
                         placeholder=""
                         name="unique"
-                        value={form.cpf}
+                        value={formLogin.cpf}
                         style={{
                           height: 30,
                           fontSize: 13,

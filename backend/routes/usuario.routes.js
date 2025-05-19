@@ -57,14 +57,16 @@ router.post("/create", async (request, response) => {
     const mailOptions = {
       from: process.env.EMAIL,
       to: email,
-      subject: "Ativação de conta em YOOFERTA",
+      subject: "Confirmação de cadastro na MBSouza",
       html: `<h1> Bem vindo ao nosso site.</h1>
       <p> Por favor, confirme seu email clicando no link abaixo:</p>
-      <a href=${
+      <p><a href=${
         process.env.NODE_ENV === "production"
           ? process.env.PROD_URL
           : process.env.DEV_URL
-      }/activate/${activationToken}/${newUsuario._id}>ATIVE SUA CONTA</a>
+      }/mbsouzas/activate/${activationToken}/${
+        newUsuario._id
+      }>ATIVE SUA CONTA</a></p>
       <p>Após clicar, basta efetuar o login normalmente em nosso site.</p>`,
       headers: {
         "X-Priority": "3",
@@ -74,6 +76,7 @@ router.post("/create", async (request, response) => {
     };
     try {
       const res = await transporter.sendMail(mailOptions);
+      console.log(res);
     } catch (error) {
       await UsuarioModel.findByIdAndDelete(newUsuario._id);
 
@@ -133,7 +136,7 @@ router.put("/recuperar", async (request, response) => {
     const mailOptions = {
       from: process.env.EMAIL,
       to: userCpf ? userCpf.email : userEmail.email,
-      subject: "Recuperação de senha em YOOFERTA",
+      subject: "Recuperação de senha em MBSouza",
       html: `<h1> Vamos recuperar sua Senha.</h1>
       <p> Por favor, clique no link abaixo para alterar sua senha:</p>
       <a href=${
@@ -187,7 +190,7 @@ router.put("/alterarEmail", isAuth, async (request, response) => {
       const mailOptions = {
         from: process.env.EMAIL,
         to: novoEmail,
-        subject: "Alteração de email em YOOFERTA",
+        subject: "Alteração de email em MBSouza",
         html: `<h1> Vamos alterar seu email.</h1>
         <p> Por favor, insira o código abaixo para verificação do email:</p>
         <h4>${codigoTrocaEmail}</h4>`,

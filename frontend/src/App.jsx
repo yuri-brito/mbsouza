@@ -24,6 +24,7 @@ import EmpresaPage from "./pages/Empresa/EmpresaPage";
 import NossosProdutos from "./components/NossosProdutos/NossosProdutos";
 import InformacoesPage from "./pages/Informacoes/InformacoesPage";
 import ContatoPage from "./pages/Contato/ContatoPage";
+import ProfilePage from "./pages/ProfilePage/ProfilePage";
 
 function App() {
   const [theme, setTheme] = useState("");
@@ -58,7 +59,7 @@ function App() {
           ></Route>
           <Route
             path="/ProfilePage"
-            element={<ProtectedRoute Component={Home} />}
+            element={<ProtectedRoute Component={ProfilePage} />}
           ></Route>
           <Route path="/pagamento" element={<Pagamento />} />
         </Routes>
