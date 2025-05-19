@@ -10,6 +10,10 @@ const subcategoriaSchema = new Schema(
       type: Boolean,
       default: false,
     },
+    categoria: {
+      type: Schema.Types.ObjectId,
+      ref: "Categoria",
+    },
   },
   {
     timestamps: true,
