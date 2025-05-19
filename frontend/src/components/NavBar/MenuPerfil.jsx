@@ -415,7 +415,6 @@ function MenuPerfil() {
           eventKey="0"
           style={{ paddingInline: 12 }}
           onClick={handleShow}
-          active={pathname === "/"}
         >
           Criar conta
         </Dropdown.Item>

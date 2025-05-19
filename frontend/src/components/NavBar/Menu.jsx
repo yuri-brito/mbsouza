@@ -110,6 +110,7 @@ function Menu() {
         eventKey="0"
         style={{ paddingInline: 12 }}
         onClick={(e) => navigate("/")}
+        active={pathname === "/"}
       >
         <i className="bi bi-house-door"></i> Home
       </Dropdown.Item>
@@ -118,6 +119,7 @@ function Menu() {
         eventKey="1"
         style={{ paddingInline: 12 }}
         onClick={(e) => navigate("/Empresa")}
+        active={pathname === "/Empresa"}
       >
         <i className="bi bi-building"></i> Empresa
       </Dropdown.Item>
@@ -125,6 +127,7 @@ function Menu() {
         eventKey="2"
         style={{ paddingInline: 12 }}
         onClick={(e) => navigate("/Informacoes")}
+        active={pathname === "/Informacoes"}
       >
         <i className="bi bi-info-circle"></i> Informações
       </Dropdown.Item>
@@ -132,6 +135,7 @@ function Menu() {
         eventKey="3"
         style={{ paddingInline: 12 }}
         onClick={(e) => navigate("/Contato")}
+        active={pathname === "/Contato"}
       >
         <i className="bi bi-people"></i> Contato
       </Dropdown.Item>
