@@ -122,15 +122,13 @@ function Perfil({ animationClass, setAnimationClass }) {
       >
         <i className="bi bi-person"></i> Perfil
       </Dropdown.Item>
-      <Dropdown.Item eventKey="2" style={{ paddingInline: 12 }}>
+      <Dropdown.Item eventKey="2" disabled={true} style={{ paddingInline: 12 }}>
         <i className="bi bi-bag-heart"></i> Lista de desejos
       </Dropdown.Item>
-      <Dropdown.Item eventKey="3" style={{ paddingInline: 12 }}>
+      <Dropdown.Item eventKey="3" disabled={true} style={{ paddingInline: 12 }}>
         <i className="bi bi-lightning-charge"></i> Categorias mais acessadas
       </Dropdown.Item>
-      <Dropdown.Item eventKey="3" style={{ paddingInline: 12 }}>
-        <i className="bi bi-coin"></i> Minhas ofertas
-      </Dropdown.Item>
+
       <Dropdown.Divider />
       <Dropdown.Item
         eventKey="4"
