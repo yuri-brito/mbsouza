@@ -81,7 +81,7 @@ function ContatoPage({ theme }) {
         className="d-flex justify-content-center p-0"
         style={{
           backgroundColor:
-            theme === "dark" ? "rgb(0, 63, 106)" : "rgb(0, 153, 192)",
+            theme === "dark" ? "rgb(0, 63, 106)" : "rgb(247, 113, 34)",
           height: "auto",
 
           marginInline: 0,
@@ -94,8 +94,8 @@ function ContatoPage({ theme }) {
       <Container>
         <Row className="d-flex justify-content-center p-0 m-0">
           <Col xs={12} md={6}>
-            <Row className="justify-content-center subtitulo mb-2">
-              Nos envie um e-mail
+            <Row className="justify-content-center subtitulo mb-4">
+              Solicite um orçamento
             </Row>
             <Container>
               <FloatingLabel
@@ -199,7 +199,22 @@ function ContatoPage({ theme }) {
                 </Form.Control.Feedback>
               </FloatingLabel>
               <Button
-                style={{ width: "100%", maxWidth: 200, fontSize: 14 }}
+                size="sm"
+                style={{
+                  width: "30%",
+                  maxWidth: 120,
+                  fontSize: 12,
+                  padding: 2,
+                  boxShadow:
+                    " rgba(50, 50, 93, 0.25) 0px 2px 5px -1px,rgba(0, 0, 0, 0.3) 0px 1px 3px -1px",
+                }}
+                onMouseDown={(e) => {
+                  e.target.style.boxShadow = "none";
+                }}
+                onMouseUp={(e) => {
+                  e.target.style.boxShadow =
+                    " rgba(50, 50, 93, 0.25) 0px 2px 5px -1px,rgba(0, 0, 0, 0.3) 0px 1px 3px -1px";
+                }}
                 variant="primary"
               >
                 <i

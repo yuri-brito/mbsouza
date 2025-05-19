@@ -50,7 +50,7 @@
   color: var(--bs-text-color);
 }
 .dropdownPerfil > button:hover {
-  background-color: rgb(9, 183, 241) !important;
+  background-color: rgb(241, 137, 9) !important;
 }
 .dropdownPerfil > button:active {
   background-color: transparent !important;
@@ -80,7 +80,7 @@
 }
 
 .menuHorizontalButton:hover{
-  background-color: rgb(9, 183, 241) !important;
+  background-color: rgb(241, 137, 9) !important;
 }
 .menuHorizontalButton:active {
   background-color: transparent !important;
@@ -98,7 +98,7 @@
   border-width: 1.5px;
 }
 .dropdownMenu > button:hover{
-   background-color: rgb(9, 183, 241) !important;
+   background-color: rgb(241, 137, 9) !important;
 }
 .dropdownMenu > button:active {
   background-color: transparent !important;
@@ -154,7 +154,7 @@ display: none !important;
 }
 
 .criarContaButton:hover{
-  background-color: rgb(9, 183, 241) !important;
+  background-color: rgb(241, 137, 9) !important;
 }
 
 

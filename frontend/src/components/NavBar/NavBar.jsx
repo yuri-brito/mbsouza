@@ -76,8 +76,8 @@ function NavBar({ theme, setTheme }) {
       style={{
         background:
           theme === "dark"
-            ? " linear-gradient(165deg, rgba(0, 105, 148, 1) 0%, rgba(0, 65, 106, 1) 100%)"
-            : " linear-gradient(165deg, rgba(173, 216, 230, 1) 0%, rgba(0, 191, 255, 1) 100%)",
+            ? "linear-gradient(135deg, #0d1b2a, #1b263b, #415a77) "
+            : "linear-gradient(135deg, #fbd786, #f76b1c) ",
         boxShadow:
           "rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px",
         animation: "fadein 1.5s",
@@ -112,7 +112,7 @@ function NavBar({ theme, setTheme }) {
                 alt="logo"
                 style={{
                   // filter: theme === "dark" ? "invert(20)" : "",
-                  width: "9vw",
+                  width: "8vw",
                   // height: 50,
                   maxWidth: 1000,
                   minWidth: 70,

@@ -19,7 +19,7 @@ function InformacoesPage({ theme }) {
         className="d-flex justify-content-center"
         style={{
           backgroundColor:
-            theme === "dark" ? "rgb(0, 63, 106)" : "rgb(0, 153, 192)",
+            theme === "dark" ? "rgb(0, 63, 106)" : "rgb(247, 113, 34)",
           height: "auto",
 
           marginInline: 0,

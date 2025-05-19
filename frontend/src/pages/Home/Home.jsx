@@ -653,7 +653,7 @@ function Home({ theme }) {
           className="d-flex justify-content-center"
           style={{
             backgroundColor:
-              theme === "dark" ? "rgb(0, 63, 106)" : "rgb(0, 153, 192)",
+              theme === "dark" ? "rgb(0, 63, 106)" : "rgb(247, 113, 34)",
             height: "auto",
             marginTop: 100,
             marginInline: 0,
@@ -1131,7 +1131,7 @@ function Home({ theme }) {
           <Row
             style={{
               backgroundColor:
-                theme === "dark" ? "rgb(0, 63, 106)" : "rgb(0, 153, 192)",
+                theme === "dark" ? "rgb(0, 63, 106)" : "rgb(247, 113, 34)",
               height: "auto",
               marginTop: 100,
               marginInline: 0,
