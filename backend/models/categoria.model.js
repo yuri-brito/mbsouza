@@ -5,10 +5,11 @@ const categoriaSchema = new Schema(
     nome: {
       type: String,
       required: true,
+      unique: true,
     },
     active: {
       type: Boolean,
-      default: false,
+      default: true,
     },
   },
   {

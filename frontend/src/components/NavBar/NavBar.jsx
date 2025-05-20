@@ -28,9 +28,10 @@ import Empresa from "./Empresa";
 import Informacoes from "./Informacoes";
 import Contato from "./Contato";
 import MenuPerfil from "./MenuPerfil";
-function NavBar({ theme, setTheme }) {
+function NavBar() {
   // const [theme, setTheme] = useState("");
-  const { loggedUser, setLoggedUser } = useContext(AuthContext);
+  const { loggedUser, setLoggedUser, theme, setTheme } =
+    useContext(AuthContext);
   const navigate = useNavigate();
   const divRef = useRef(null);
   const [animationClass, setAnimationClass] = useState("");

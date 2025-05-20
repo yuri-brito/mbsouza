@@ -33,7 +33,27 @@ router.post(
     }
   }
 );
+router.get(
+  "/all",
+  isAuth,
+  isAdmin,
+  attachCurrentUser,
+  async (request, response) => {
+    try {
+      const loggedUser = request.currentUser;
+      if (!loggedUser) {
+        return response.status(404).json({ msg: "Usuário não encontrado!" });
+      }
 
+      let subcategoria = await SubcategoriaModel.find();
+
+      return response.status(200).json(subcategoria);
+    } catch (error) {
+      console.log(error);
+      return response.status(500).json({ msg: "Erro interno no servidor!" });
+    }
+  }
+);
 router.get(
   "/:id",
   isAuth,

@@ -11,10 +11,19 @@ import {
   Modal,
   Row,
 } from "react-bootstrap";
+import { useContext } from "react";
+import { AuthContext } from "../../contexts/authContext";
 
-function EmpresaPage({ theme }) {
+function EmpresaPage() {
+  const { theme } = useContext(AuthContext);
   return (
-    <div style={{ position: "relative", animation: "fadein 1.5s" }}>
+    <div
+      style={{
+        position: "relative",
+        animation: "fadein 1.5s",
+        marginBottom: 100,
+      }}
+    >
       <Row
         className="d-flex justify-content-center"
         style={{

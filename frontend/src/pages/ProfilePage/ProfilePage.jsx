@@ -86,7 +86,7 @@ function formatCep(number) {
 }
 const ProfilePage = () => {
   const [animationClass, setAnimationClass] = useState("");
-  const { loggedUser, setLoggedUser } = useContext(AuthContext);
+  const { loggedUser, setLoggedUser, theme } = useContext(AuthContext);
   const [isLoading, setIsLoading] = useState(true);
   const [isLoadingModal, setIsLoadingModal] = useState(false);
   // const [userData, setUserData] = useState({});
@@ -1239,7 +1239,7 @@ const ProfilePage = () => {
 
           marginInline: "auto",
           marginTop: 100,
-          marginBottom: 60,
+          marginBottom: 100,
         }}
       >
         <Card

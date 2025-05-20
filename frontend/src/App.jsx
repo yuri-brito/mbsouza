@@ -25,30 +25,21 @@ import NossosProdutos from "./components/NossosProdutos/NossosProdutos";
 import InformacoesPage from "./pages/Informacoes/InformacoesPage";
 import ContatoPage from "./pages/Contato/ContatoPage";
 import ProfilePage from "./pages/ProfilePage/ProfilePage";
+import Admin from "./pages/Admin/Admin";
 
 function App() {
-  const [theme, setTheme] = useState("");
   return (
     <div className="App">
       <Toaster />
       <AuthContextComponent>
-        <NavBar theme={theme} setTheme={setTheme} />
+        <NavBar />
         <SubNav />
-        <NossosProdutos theme={theme} />
+        <NossosProdutos />
         <Routes>
-          <Route path="/" element={<Home theme={theme} />} />
-          <Route
-            path="/Empresa"
-            element={<EmpresaPage theme={theme} />}
-          ></Route>
-          <Route
-            path="/Informacoes"
-            element={<InformacoesPage theme={theme} />}
-          ></Route>
-          <Route
-            path="/Contato"
-            element={<ContatoPage theme={theme} />}
-          ></Route>
+          <Route path="/" element={<Home />} />
+          <Route path="/Empresa" element={<EmpresaPage />}></Route>
+          <Route path="/Informacoes" element={<InformacoesPage />}></Route>
+          <Route path="/Contato" element={<ContatoPage />}></Route>
           <Route
             path="/activate/:activationToken/:userId"
             element={<Activate />}
@@ -60,6 +51,10 @@ function App() {
           <Route
             path="/ProfilePage"
             element={<ProtectedRoute Component={ProfilePage} />}
+          ></Route>
+          <Route
+            path="/Admin"
+            element={<ProtectedRoute Component={Admin} />}
           ></Route>
           <Route path="/pagamento" element={<Pagamento />} />
         </Routes>

@@ -14,8 +14,6 @@ router.post(
   attachCurrentUser,
   async (request, response) => {
     try {
-      const { password, email } = request.body;
-
       const newCategoria = await CategoriaModel.create({
         ...request.body,
       });
@@ -23,9 +21,7 @@ router.post(
     } catch (error) {
       console.log(error);
       if (error.errorResponse && error.errorResponse.code === 11000) {
-        return response
-          .status(500)
-          .json({ msg: "Conta de usuário já existente." });
+        return response.status(500).json({ msg: "Categoria já existente." });
       }
       return response
         .status(500)
@@ -33,7 +29,27 @@ router.post(
     }
   }
 );
+router.get(
+  "/all",
+  isAuth,
+  isAdmin,
+  attachCurrentUser,
+  async (request, response) => {
+    try {
+      const loggedUser = request.currentUser;
+      if (!loggedUser) {
+        return response.status(404).json({ msg: "Usuário não encontrado!" });
+      }
 
+      let categoria = await CategoriaModel.find();
+
+      return response.status(200).json(categoria);
+    } catch (error) {
+      console.log(error);
+      return response.status(500).json({ msg: "Erro interno no servidor!" });
+    }
+  }
+);
 router.get(
   "/:id",
   isAuth,

@@ -21,8 +21,11 @@ import "./Home.css";
 import Whatsapp from "../../components/Whatsapp";
 import EmpresaPage from "../Empresa/EmpresaPage";
 import teste from "../../assets/teste.png";
-function Home({ theme }) {
+import { useContext } from "react";
+import { AuthContext } from "../../contexts/authContext";
+function Home() {
   const { state, pathname } = useLocation();
+  const { theme } = useContext(AuthContext);
   const navigate = useNavigate();
   const [showModalBoasVindas, setShowModalBoasVindas] = useState(false);
   const [showModalRecuperacaoSenha, setShowModalRecuperacaoSenha] =

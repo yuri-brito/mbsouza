@@ -128,6 +128,18 @@ function Perfil({ animationClass, setAnimationClass }) {
       <Dropdown.Item eventKey="3" disabled={true} style={{ paddingInline: 12 }}>
         <i className="bi bi-lightning-charge"></i> Categorias mais acessadas
       </Dropdown.Item>
+      {loggedUser.userData.papel === "admin" && (
+        <Dropdown.Item
+          eventKey="4"
+          onClick={(e) => {
+            e.preventDefault;
+            navigate("/Admin");
+          }}
+          style={{ paddingInline: 12 }}
+        >
+          <i className="bi bi-briefcase"></i> Administração
+        </Dropdown.Item>
+      )}
 
       <Dropdown.Divider />
       <Dropdown.Item

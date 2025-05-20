@@ -3,7 +3,10 @@ import { Col, Row } from "react-bootstrap";
 import { useEffect, useRef } from "react";
 import { useState } from "react";
 import Whatsapp from "../Whatsapp";
-const NossosProdutos = ({ theme }) => {
+import { useContext } from "react";
+import { AuthContext } from "../../contexts/authContext";
+const NossosProdutos = () => {
+  const { theme } = useContext(AuthContext);
   const produtosButtonRef = useRef(null);
   const produtosRef = useRef(null);
   const [menuTop, setMenuTop] = useState(0);

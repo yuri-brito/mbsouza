@@ -3,6 +3,7 @@ const AuthContext = createContext();
 
 function AuthContextComponent(props) {
   const [loggedUser, setLoggedUser] = useState({ token: "", userData: {} });
+  const [theme, setTheme] = useState("");
   useEffect(() => {
     const storeUser = localStorage.getItem("loggedUser");
     const storedUserParse = JSON.parse(storeUser || '""');
@@ -13,7 +14,9 @@ function AuthContextComponent(props) {
     }
   }, []);
   return (
-    <AuthContext.Provider value={{ loggedUser, setLoggedUser }}>
+    <AuthContext.Provider
+      value={{ loggedUser, setLoggedUser, theme, setTheme }}
+    >
       {props.children}
     </AuthContext.Provider>
   );

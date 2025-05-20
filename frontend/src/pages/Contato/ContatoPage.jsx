@@ -11,7 +11,10 @@ import {
 } from "react-bootstrap";
 import "../../components/NavBar/NavBar.css";
 import "../Home/Home.css";
-function ContatoPage({ theme }) {
+import { useContext } from "react";
+import { AuthContext } from "../../contexts/authContext";
+function ContatoPage() {
+  const { theme } = useContext(AuthContext);
   const [form, setForm] = useState({
     nome: "",
     assunto: "",
@@ -72,7 +75,7 @@ function ContatoPage({ theme }) {
   return (
     <div
       style={{
-        marginBottom: 50,
+        marginBottom: 100,
         position: "relative",
         animation: "fadein 1.5s",
       }}
