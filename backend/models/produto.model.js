@@ -1,13 +1,6 @@
 import { Schema, model } from "mongoose";
+import { type } from "os";
 
-const produtoImgSchema = new Schema(
-  {
-    url: { type: String, default: "" },
-    imageSize: { type: Number, default: 100 },
-    position: { type: Object, default: { x: 0, y: 0 } },
-  },
-  { _id: false }
-);
 const produtoSchema = new Schema(
   {
     nome: {
@@ -33,18 +26,23 @@ const produtoSchema = new Schema(
       required: true,
       default: 0,
     },
-    categoria: {
-      type: Schema.Types.ObjectId,
-      ref: "Categoria",
-      required: true,
-    },
     subcategoria: {
       type: Schema.Types.ObjectId,
       ref: "Subcategoria",
       required: true,
     },
+    destaque: {
+      type: String,
+      enum: ["0", "1", "2"],
+      default: "0",
+    },
 
-    produtoImgs: [{ type: produtoImgSchema, default: [] }],
+    imagens: [
+      {
+        url: String,
+        filename: String, // para facilitar a exclusão posterior
+      },
+    ],
     espTec: [{ type: Object, default: [] }],
   },
   {

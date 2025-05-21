@@ -5,6 +5,7 @@ import attachCurrentUser from "../middlewares/attachCurrentUser.js";
 
 import isAdmin from "../middlewares/isAdmin.js";
 import SubcategoriaModel from "../models/subcategoria.model.js";
+import ProdutoModel from "../models/produto.model.js";
 
 const router = express.Router();
 router.post(
@@ -14,14 +15,14 @@ router.post(
   attachCurrentUser,
   async (request, response) => {
     try {
-      const newCategoria = await SubcategoriaModel.create({
+      const newProduto = await ProdutoModel.create({
         ...request.body,
       });
-      return response.status(201).json(newCategoria);
+      return response.status(201).json(newProduto);
     } catch (error) {
       console.log(error);
       if (error.errorResponse && error.errorResponse.code === 11000) {
-        return response.status(500).json({ msg: "Subcategoria já existente." });
+        return response.status(500).json({ msg: "Produto já existente." });
       }
       return response
         .status(500)
@@ -41,9 +42,9 @@ router.get(
         return response.status(404).json({ msg: "Usuário não encontrado!" });
       }
 
-      let subcategoria = await SubcategoriaModel.find().populate("categoria");
+      let produto = await ProdutoModel.find().populate("subcategoria");
 
-      return response.status(200).json(subcategoria);
+      return response.status(200).json(produto);
     } catch (error) {
       console.log(error);
       return response.status(500).json({ msg: "Erro interno no servidor!" });
@@ -63,14 +64,12 @@ router.get(
         return response.status(404).json({ msg: "Usuário não encontrado!" });
       }
 
-      let subcategoria = await SubcategoriaModel.findById(id);
-      if (!subcategoria) {
-        return response
-          .status(404)
-          .json({ msg: "Subcategoria não encontrado!" });
+      let produto = await ProdutoModel.findById(id);
+      if (!produto) {
+        return response.status(404).json({ msg: "Produto não encontrado!" });
       }
 
-      return response.status(200).json(subcategoria);
+      return response.status(200).json(produto);
     } catch (error) {
       console.log(error);
       return response.status(500).json({ msg: "Erro interno no servidor!" });
@@ -86,13 +85,13 @@ router.put(
   async (request, response) => {
     try {
       const { id } = request.params;
-      const editedCategoria = await SubcategoriaModel.findByIdAndUpdate(
+      const editedProduto = await ProdutoModel.findByIdAndUpdate(
         id,
         { ...request.body },
         { returnDocument: "before", runValidators: true }
       );
 
-      return response.status(200).json(editedCategoria);
+      return response.status(200).json(editedProduto);
     } catch (error) {
       console.log(error);
       return response.status(500).json({ msg: "Erro interno no servidor!" });
@@ -108,9 +107,9 @@ router.delete(
     try {
       const { id } = request.params;
 
-      const deletedCategoria = await SubcategoriaModel.findByIdAndDelete(id);
+      const deletedProduto = await ProdutoModel.findByIdAndDelete(id);
       //tem que deletar a subcategoria de todos os produtos
-      return response.status(200).json(deletedCategoria);
+      return response.status(200).json(deletedProduto);
     } catch (error) {
       console.log(error);
       return response.status(500).json({ msg: "Erro interno no servidor!" });
