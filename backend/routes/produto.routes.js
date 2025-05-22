@@ -32,16 +32,9 @@ router.post(
 );
 router.get(
   "/all",
-  isAuth,
-  isAdmin,
-  attachCurrentUser,
+
   async (request, response) => {
     try {
-      const loggedUser = request.currentUser;
-      if (!loggedUser) {
-        return response.status(404).json({ msg: "Usuário não encontrado!" });
-      }
-
       let produto = await ProdutoModel.find().populate({
         path: "subcategoria",
         populate: { path: "categoria" },

@@ -28,6 +28,7 @@ import ProfilePage from "./pages/ProfilePage/ProfilePage";
 import Admin from "./pages/Admin/Admin";
 import api from "./api/api";
 import { useEffect } from "react";
+import CategoriaPage from "./pages/Produtos/CategoriaPage";
 function App() {
   const [reload, setRelod] = useState(false);
   const [categorias, setCategorias] = useState([]);
@@ -40,6 +41,7 @@ function App() {
         const res = await api.get("/categoria/all");
         const ressub = await api.get("/subcategoria/all");
         const resprod = await api.get("/produto/all");
+
         setCategorias(res.data);
         setSubcategorias(ressub.data);
         setProdutos(resprod.data);
@@ -49,7 +51,7 @@ function App() {
     };
     fetching();
   }, [reload]);
-  console.log(produtos);
+
   return (
     <div className="App">
       <Toaster />
@@ -66,6 +68,15 @@ function App() {
           <Route path="/Empresa" element={<EmpresaPage />}></Route>
           <Route path="/Informacoes" element={<InformacoesPage />}></Route>
           <Route path="/Contato" element={<ContatoPage />}></Route>
+          <Route
+            path="/CategoriaPage/:id"
+            element={
+              <CategoriaPage
+                produtos={produtos}
+                subcategorias={subcategorias}
+              />
+            }
+          ></Route>
           <Route
             path="/activate/:activationToken/:userId"
             element={<Activate />}

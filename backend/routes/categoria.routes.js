@@ -31,16 +31,9 @@ router.post(
 );
 router.get(
   "/all",
-  isAuth,
-  isAdmin,
-  attachCurrentUser,
+
   async (request, response) => {
     try {
-      const loggedUser = request.currentUser;
-      if (!loggedUser) {
-        return response.status(404).json({ msg: "Usuário não encontrado!" });
-      }
-
       let categoria = await CategoriaModel.find();
 
       return response.status(200).json(categoria);

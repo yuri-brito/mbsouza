@@ -6,11 +6,9 @@ import Whatsapp from "../Whatsapp";
 import { useContext } from "react";
 import { AuthContext } from "../../contexts/authContext";
 import "./NossosProdutos.css";
+import { useNavigate } from "react-router-dom";
 const NossosProdutos = ({ produtos, categorias, subcategorias }) => {
-  console.log([
-    ...produtos.map((p) => p.subcategoria._id),
-    ...produtos.map((p) => p.subcategoria.categoria._id),
-  ]);
+  const navigate = useNavigate();
   const { theme } = useContext(AuthContext);
   const produtosButtonRef = useRef(null);
   const produtosRef = useRef(null);
@@ -155,14 +153,15 @@ const NossosProdutos = ({ produtos, categorias, subcategorias }) => {
                 return (
                   <Col
                     key={c._id}
-                    className="mb-3"
+                    className="mb-3 "
                     style={{
-                      flex: "0 1 30%", // importante: permite quebra para nova linha
-                      minWidth: 200,
+                      flex: "0 1 25%", // importante: permite quebra para nova linha
+                      minWidth: 140,
                       maxWidth: "100%", // impede overflow lateral
                     }}
                   >
                     <Row
+                      as={"div"}
                       className={
                         categoriasUtilizadas.includes(c._id)
                           ? "subtitulos hoverSet"
@@ -174,6 +173,13 @@ const NossosProdutos = ({ produtos, categorias, subcategorias }) => {
                           ? "pointer"
                           : "normal",
                         fontWeight: 700,
+                        color: !categoriasUtilizadas.includes(c._id) && "gray",
+                      }}
+                      onClick={() => {
+                        if (categoriasUtilizadas.includes(c._id)) {
+                          navigate(`/CategoriaPage/${c._id}`);
+                          setIsVisible(false);
+                        }
                       }}
                     >
                       {c.nome}
@@ -193,6 +199,14 @@ const NossosProdutos = ({ produtos, categorias, subcategorias }) => {
                               cursor: categoriasUtilizadas.includes(s._id)
                                 ? "pointer"
                                 : "normal",
+                              color:
+                                !categoriasUtilizadas.includes(s._id) && "gray",
+                            }}
+                            onClick={() => {
+                              if (categoriasUtilizadas.includes(s._id)) {
+                                navigate(`/CategoriaPage/${s._id}`);
+                                setIsVisible(false);
+                              }
                             }}
                           >
                             {s.nome}
