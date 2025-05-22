@@ -1,16 +1,24 @@
-import { Col, Row } from "react-bootstrap";
+import { Col, Container, Row } from "react-bootstrap";
 
 import { useEffect, useRef } from "react";
 import { useState } from "react";
 import Whatsapp from "../Whatsapp";
 import { useContext } from "react";
 import { AuthContext } from "../../contexts/authContext";
-const NossosProdutos = () => {
+import "./NossosProdutos.css";
+const NossosProdutos = ({ produtos, categorias, subcategorias }) => {
+  console.log([
+    ...produtos.map((p) => p.subcategoria._id),
+    ...produtos.map((p) => p.subcategoria.categoria._id),
+  ]);
   const { theme } = useContext(AuthContext);
   const produtosButtonRef = useRef(null);
   const produtosRef = useRef(null);
   const [menuTop, setMenuTop] = useState(0);
-
+  const categoriasUtilizadas = [
+    ...produtos.map((p) => p.subcategoria._id),
+    ...produtos.map((p) => p.subcategoria.categoria._id),
+  ];
   const atualizarTop = () => {
     if (produtosButtonRef.current) {
       const rect = produtosButtonRef.current.getBoundingClientRect();
@@ -128,11 +136,11 @@ const NossosProdutos = () => {
             if (!isVisible) setShouldRender(false); // só remove após fadeout
           }}
           style={{
-            backgroundColor: "rgb(255, 255, 255)",
+            backgroundColor: theme === "dark" ? "rgb(33, 37, 41)" : "white",
             // display: "none",
             // animation: isVisible ? "fadein 0.5s" : "fadeout 0.5s",
             position: "absolute",
-            height: 200,
+            // height: 200,
             top: `${menuTop}px`, // logo abaixo do gatilho
             left: 0,
             right: 0,
@@ -141,8 +149,62 @@ const NossosProdutos = () => {
               "rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px",
           }}
         >
+          <Container>
+            <Row className="d-flex flex-wrap">
+              {categorias.map((c) => {
+                return (
+                  <Col
+                    key={c._id}
+                    className="mb-3"
+                    style={{
+                      flex: "0 1 30%", // importante: permite quebra para nova linha
+                      minWidth: 200,
+                      maxWidth: "100%", // impede overflow lateral
+                    }}
+                  >
+                    <Row
+                      className={
+                        categoriasUtilizadas.includes(c._id)
+                          ? "subtitulos hoverSet"
+                          : "subtitulos"
+                      }
+                      style={{
+                        whiteSpace: "nowrap",
+                        cursor: categoriasUtilizadas.includes(c._id)
+                          ? "pointer"
+                          : "normal",
+                        fontWeight: 700,
+                      }}
+                    >
+                      {c.nome}
+                    </Row>
+                    {subcategorias
+                      .filter((s) => s.categoria._id === c._id)
+                      .map((s) => {
+                        return (
+                          <Row
+                            className={
+                              categoriasUtilizadas.includes(s._id)
+                                ? "textos ms-1 hoverSet"
+                                : "textos ms-1"
+                            }
+                            style={{
+                              whiteSpace: "nowrap",
+                              cursor: categoriasUtilizadas.includes(s._id)
+                                ? "pointer"
+                                : "normal",
+                            }}
+                          >
+                            {s.nome}
+                          </Row>
+                        );
+                      })}
+                  </Col>
+                );
+              })}
+            </Row>
+          </Container>
           {/* Aqui entra o looping nas categorias e subcategorias se houver */}
-          Categoria A Catergoria B Categoria C
         </Row>
       )}
     </div>

@@ -42,7 +42,10 @@ router.get(
         return response.status(404).json({ msg: "Usuário não encontrado!" });
       }
 
-      let produto = await ProdutoModel.find().populate("subcategoria");
+      let produto = await ProdutoModel.find().populate({
+        path: "subcategoria",
+        populate: { path: "categoria" },
+      });
 
       return response.status(200).json(produto);
     } catch (error) {

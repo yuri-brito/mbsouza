@@ -1141,7 +1141,7 @@ function Admin() {
                     }}
                     onChange={(e, selector) => handleSelect(e, selector)}
                   />
-                  <Form.Check className="my-3">
+                  <Form.Check className="my-3 d-flex align-items-center gap-2">
                     <Form.Check.Input
                       checked={formProduto.destaque === "2"}
                       style={{
@@ -1161,12 +1161,38 @@ function Admin() {
                         fontSize: 13,
                         fontWeight: "normal",
                         textAlign: "left",
+                        marginBottom: -5,
                       }}
                     >
                       Super destaque
                     </Form.Check.Label>
                   </Form.Check>
+                  <Form.Check className="my-3 d-flex align-items-center gap-2">
+                    <Form.Check.Input
+                      checked={formProduto.destaque === "1"}
+                      style={{
+                        cursor: "pointer",
 
+                        width: 13,
+                        height: 13,
+                      }}
+                      onChange={(e) => {
+                        e.target.checked
+                          ? setFormProduto({ ...formProduto, destaque: "1" })
+                          : setFormProduto({ ...formProduto, destaque: "0" });
+                      }}
+                    />
+                    <Form.Check.Label
+                      style={{
+                        fontSize: 13,
+                        fontWeight: "normal",
+                        textAlign: "left",
+                        marginBottom: -5,
+                      }}
+                    >
+                      Destaque
+                    </Form.Check.Label>
+                  </Form.Check>
                   <Row className="my-3 subtitulos">
                     <div
                       style={{

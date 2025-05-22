@@ -26,15 +26,41 @@ import InformacoesPage from "./pages/Informacoes/InformacoesPage";
 import ContatoPage from "./pages/Contato/ContatoPage";
 import ProfilePage from "./pages/ProfilePage/ProfilePage";
 import Admin from "./pages/Admin/Admin";
-
+import api from "./api/api";
+import { useEffect } from "react";
 function App() {
+  const [reload, setRelod] = useState(false);
+  const [categorias, setCategorias] = useState([]);
+  const [subcategorias, setSubcategorias] = useState([]);
+  const [produtos, setProdutos] = useState([]);
+  const [menuOpen, setMenuOpen] = useState(undefined);
+  useEffect(() => {
+    const fetching = async () => {
+      try {
+        const res = await api.get("/categoria/all");
+        const ressub = await api.get("/subcategoria/all");
+        const resprod = await api.get("/produto/all");
+        setCategorias(res.data);
+        setSubcategorias(ressub.data);
+        setProdutos(resprod.data);
+      } catch (error) {
+        console.log(error);
+      }
+    };
+    fetching();
+  }, [reload]);
+  console.log(produtos);
   return (
     <div className="App">
       <Toaster />
       <AuthContextComponent>
         <NavBar />
         <SubNav />
-        <NossosProdutos />
+        <NossosProdutos
+          produtos={produtos}
+          categorias={categorias}
+          subcategorias={subcategorias}
+        />
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/Empresa" element={<EmpresaPage />}></Route>
