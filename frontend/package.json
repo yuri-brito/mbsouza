@@ -27,7 +27,8 @@
     "react-hot-toast": "^2.4.1",
     "react-router-dom": "^6.24.1",
     "react-select": "^5.8.0",
-    "spinners-react": "^1.0.7"
+    "spinners-react": "^1.0.7",
+    "swiper": "^11.2.8"
   },
   "devDependencies": {
     "@types/react": "^18.3.3",

@@ -1,17 +1,91 @@
-import { useState } from "react";
-import { Col, Container, FloatingLabel, Form, Row } from "react-bootstrap";
+import React, { useEffect, useRef, useState } from "react";
+import {
+  Button,
+  Col,
+  Container,
+  FloatingLabel,
+  Form,
+  Row,
+} from "react-bootstrap";
 function Buscador({ produtos }) {
   const [termo, setTermo] = useState("");
   const [show, setShow] = useState(false);
-  const [corFechar, setCorFechar] = useState("var(--bs-body-color)");
+  const [corFechar, setCorFechar] = useState("var(--bs-body-bg)");
+  const [efeitoRow, setEfeitoRow] = useState(" animate__zoomIn");
+
   const handleChange = (e) => {
     setTermo(e.target.value);
     if (e.target.value === "") {
-      setShow(false);
+      setEfeitoRow("animate__zoomOut");
+      setTimeout(() => setShow(false), 300);
     } else {
+      setEfeitoRow(" animate__zoomIn");
+
       setShow(true);
     }
   };
+  const handleFechar = () => {
+    setEfeitoRow(" animate__zoomOut");
+    setTimeout(() => {
+      setShow(false);
+      setTermo("");
+
+      setCorFechar("var(--bs-body-bg)");
+    }, 300); // Tempo da animação
+  };
+  const [quebras, setQuebras] = useState({}); // <== Estado mapeado para quebras
+  const refs = useRef({}); // <== Guardar os refs das Rows
+
+  useEffect(() => {
+    if (!show) return;
+
+    const novosValores = {};
+    Object.keys(refs.current).forEach((id) => {
+      const el = refs.current[id];
+
+      if (el) {
+        const cols = el.querySelectorAll(".col-monitor");
+
+        if (cols.length >= 2) {
+          const top1 = cols[0].offsetTop;
+          const top2 = cols[1].offsetTop;
+          console.log(top1, top2);
+          novosValores[id] = top2 > top1;
+        }
+      }
+    });
+
+    setQuebras(novosValores);
+  }, [show, termo, produtos]);
+
+  // ResizeObserver ajustado
+  useEffect(() => {
+    const observers = [];
+
+    Object.keys(refs.current).forEach((id) => {
+      const el = refs.current[id];
+      if (el) {
+        const observer = new ResizeObserver(() => {
+          const cols = el.querySelectorAll(".col-monitor");
+          if (cols.length >= 2) {
+            const top1 = cols[0].offsetTop;
+            const top2 = cols[1].offsetTop;
+
+            setQuebras((prev) => ({
+              ...prev,
+              [id]: top2 > top1,
+            }));
+          }
+        });
+
+        observer.observe(el);
+        observers.push(observer);
+      }
+    });
+
+    return () => observers.forEach((obs) => obs.disconnect());
+  }, [show, termo, produtos]);
+
   return (
     <div
       style={{
@@ -62,7 +136,7 @@ function Buscador({ produtos }) {
       </FloatingLabel>
       {show && (
         <Row
-          className="m-0 p-0 animate__animated animate__fadeInDown"
+          className={`m-0 p-0 animate__animated ${efeitoRow} animate__faster`}
           style={{
             position: "absolute",
             top: "100%",
@@ -79,42 +153,92 @@ function Buscador({ produtos }) {
             color: "var(--bs-body-color)",
           }}
         >
-          <Row
-            className=" m-0 p-0 justify-content-end "
+          <Button
+            variant="dark"
+            className=" m-0 p-0 textos  "
             style={{
-              position: "absolute",
-              top: 0,
-              right: 10,
-              width: 10,
+              position: "sticky",
+              top: 10,
+              left: "95%",
+              width: 20,
+              height: 20,
               cursor: "pointer",
               color: corFechar,
+              backgroundColor: "var(--bs-body-color)",
+              display: "flex",
+              zIndex: 9999,
+              justifyContent: "center",
+              alignItems: "center",
+              boxShadow: "0px 4px 8px rgba(0,0,0,0.1)",
             }}
-            onClick={() => {
-              setShow(false);
-              setTermo("");
-              setCorFechar("var(--bs-body-color)");
-            }}
+            onClick={handleFechar}
             onMouseEnter={() => setCorFechar("red")}
-            onMouseLeave={() => setCorFechar("var(--bs-body-color)")}
+            onMouseLeave={() => setCorFechar("var(--bs-body-bg)")}
           >
-            {" "}
-            x
-          </Row>
+            {"x"}
+          </Button>
           <Container>
             {produtos
               .filter((p) => p.nome.toLowerCase().includes(termo.toLowerCase()))
-              .map((p) => {
+              .map((p, i) => {
+                if (!refs.current[p._id])
+                  refs.current[p._id] = React.createRef();
+                const justifyContent = quebras[p._id] ? "center" : "flex-start";
                 return (
-                  <Row className="justify-content-start align-items-center mb-2">
-                    <Col xs={"auto"}>
+                  <Row
+                    className=" align-items-center mb-2"
+                    key={p._id}
+                    ref={(el) => (refs.current[p._id] = el)}
+                    onClick={() => {
+                      console.log("clicou");
+                    }}
+                    style={{
+                      justifyContent,
+                      position: "relative",
+                      transition: "justify-content 0.2s ease",
+                      cursor: "pointer",
+                    }}
+                  >
+                    <Col
+                      style={{
+                        position: "absolute",
+                        alignSelf: "center",
+                        marginLeft: !quebras[p._id] && 20,
+                        width: "90%",
+                        bottom: -4,
+                        borderBottom: "1px solid var(--bs-body-color)",
+                      }}
+                    ></Col>
+                    <Col
+                      className="col-monitor"
+                      xs={"auto"}
+                      style={{
+                        alignSelf: "stretch",
+                        display: "flex",
+                        alignItem: "center",
+                      }}
+                    >
                       <img
                         width="100px"
                         src={p.imagens[0].url}
                         alt="imagem"
+                        style={{ cursor: "pointer" }}
+                        onClick={() => {
+                          console.log("clicou");
+                        }}
                       ></img>
                     </Col>
-                    <Col className="textos" xs={"auto"}>
-                      {p.nome}
+
+                    <Col
+                      className="col-monitor textos"
+                      xs={"auto"}
+                      style={{
+                        alignSelf: "stretch",
+                        display: "flex",
+                        alignItems: "center",
+                      }}
+                    >
+                      <div>{p.nome}</div>
                     </Col>
                   </Row>
                 );

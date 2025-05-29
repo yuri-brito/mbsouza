@@ -13,7 +13,7 @@ const Whatsapp = (props) => {
         position: "fixed",
         top: 150,
         right: 10,
-        zIndex: 999,
+        zIndex: 9999,
         width: "12vw",
         minWidth: 60,
       }}

@@ -24,6 +24,7 @@ import EmpresaPage from "../Empresa/EmpresaPage";
 import teste from "../../assets/teste.png";
 import { useContext } from "react";
 import { AuthContext } from "../../contexts/authContext";
+import CarouselLogos from "./CarouselLogos";
 function Home({ produtos }) {
   const { state, pathname } = useLocation();
   const { theme } = useContext(AuthContext);
@@ -948,7 +949,21 @@ function Home({ produtos }) {
           </Row>
         </Container>
       </Row>
-
+      <Row
+        style={{
+          backgroundColor:
+            theme === "dark" ? "rgb(0, 63, 106)" : "rgb(247, 113, 34)",
+          height: "auto",
+          marginTop: 100,
+          marginInline: 0,
+          color: "white",
+          marginBottom: 50,
+          padding: "30px 16px",
+        }}
+      >
+        <h2 className="titulos">Nossos principais clientes</h2>
+      </Row>
+      <CarouselLogos />
       {/* <Link to={"/pagamento"}>Pagamentos</Link> */}
     </div>
   );

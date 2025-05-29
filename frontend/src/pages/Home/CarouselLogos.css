@@ -1,0 +1,40 @@
+.carousel-container {
+  position: relative;
+  width: 90%;
+  /* max-width: 1000px; */
+  margin: 0 auto;
+  overflow: hidden;
+}
+
+.logo-img {
+    max-width: 120px;
+  width: auto;
+  height: auto;
+  object-fit: contain;
+  display: block;
+  pointer-events: none;
+  margin: 0 auto;
+  border-radius: 5px;
+}
+
+/* Fades nas extremidades */
+.carousel-container::before,
+.carousel-container::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  width: 100px;
+  height: 100%;
+  z-index: 10;
+  pointer-events: none;
+}
+
+.carousel-container::before {
+  left: 0;
+  background: linear-gradient(to right, rgba(255, 255, 255, 1), rgba(255, 255, 255, 0));
+}
+
+.carousel-container::after {
+  right: 0;
+  background: linear-gradient(to left, rgba(255, 255, 255, 1), rgba(255, 255, 255, 0));
+}
