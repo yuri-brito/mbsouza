@@ -1,11 +1,17 @@
+.carrosselHome > .carousel-control-prev,.carrosselHome > .carousel-control-next {
+  width: 5vw;
+  min-width: 20px;
+}
 .carrosselHome > .carousel-control-prev > .carousel-control-prev-icon {
   background-image: url("../../assets/CarrosselHome/previous_home.png");
   background-color: white;
   box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
   border-radius: 50%;
   color: var(--bs-body-color);
-  width: 4vw;
-  height: 4vw;
+  width: 3vw;
+  height: 3vw;
+  min-width: 20px;
+  min-height: 20px;
 }
 .carrosselHome > .carousel-control-next > .carousel-control-next-icon {
   background-image: url("../../assets/CarrosselHome/next_home.png");
@@ -13,34 +19,39 @@
   background-color: white;
   border-radius: 50%;
   color: var(--bs-body-color);
-  width: 4vw;
-  height: 4vw;
+  width: 3vw;
+  height: 3vw;
+  min-width: 20px;
+  min-height: 20px;
 }
 .carrosselHome > .carousel-control-prev,
 .carrosselHome > .carousel-control-next {
   max-height: 100%;
 }
 
-.carousel-indicators [data-bs-target] {
+.carrosselHome > .carousel-indicators [data-bs-target] {
   background-color: var(--bs-body-bg) !important;
 }
-.carousel-indicators {
-  margin-bottom: -2vw !important;
+.carrosselHome > .carousel-indicators {
+  margin-bottom: -1vw !important;
 }
 
-.carousel-indicators > button {
+.carrosselHome > .carousel-indicators > button {
   /* background-color: red !important; */
   width: 1vw !important;
   height: 1vw !important;
+  min-width: 8px;
+  min-height: 8px;
   border-radius: 50% !important;
   border: 1px var(--bs-body-color) solid !important;
 }
-.carousel-indicators > .active[data-bs-target] {
+.carrosselHome > .carousel-indicators > .active[data-bs-target] {
   /* background-color: var(--bs-body-color); */
 
-  border: 1px var(--bs-body-color) solid !important;
+  border: 2px var(--bs-body-color) solid !important;
 }
-.imgProduto{
+
+/* .imgProduto{
   width: 200px;
 }
 
@@ -48,4 +59,26 @@
   .imgProduto{
     width: 150px;
   }
+} */
+/* .carrosselHome {
+  height: auto !important;
+  overflow: visible !important;
 }
+.carrosselHome > .carousel-inner{
+  height: auto !important;
+  overflow: visible !important;
+} */
+.colunas{
+    height: 25vw;
+    
+}
+/* @media (max-width:420px){
+    .colunas{
+    height: 50vw;
+}
+}
+@media (max-width:380px){
+    .colunas{
+    height: 60vw;
+}
+} */

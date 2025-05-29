@@ -8,17 +8,23 @@ import {
   Form,
   Modal,
   Row,
+  Spinner,
 } from "react-bootstrap";
 import "../../components/NavBar/NavBar.css";
 import "../Home/Home.css";
 import { useContext } from "react";
 import { AuthContext } from "../../contexts/authContext";
+import api from "../../api/api";
+import toast from "react-hot-toast";
+import CustomToast from "../../components/CustomToast";
 function ContatoPage() {
   const { theme } = useContext(AuthContext);
+
   const [form, setForm] = useState({
     nome: "",
     assunto: "",
     email: "",
+    telefone: "",
     msg: "",
   });
 
@@ -69,6 +75,48 @@ function ContatoPage() {
         } else {
           setEmailValid(true);
         }
+      }
+    }
+  };
+  const handleSubmit = async (e) => {
+    try {
+      setIsLoading(true);
+      const res = await api.post("/usuario/enviar-email", form);
+      console.log(res.data);
+      setForm({
+        nome: "",
+        assunto: "",
+        email: "",
+        telefone: "",
+        msg: "",
+      });
+      toast.success(
+        (t) => <CustomToast t={t} message={`${res.data}`} duration={5000} />,
+        {
+          style: {
+            borderRadius: "10px",
+            border: "1px solid #62d346ff",
+            color: "black",
+            fontWeight: "400",
+          },
+        }
+      );
+      setIsLoading(false);
+    } catch (error) {
+      console.log(error);
+      const msg = error.response?.data?.msg || "Erro ao salvar produto";
+      toast.error((t) => <CustomToast t={t} message={msg} duration={5000} />, {
+        style: {
+          borderRadius: "10px",
+          border: "1px solid #ff4c4cff",
+          color: "black",
+          fontWeight: "400",
+        },
+      });
+      if (msg === "Sua sessão expirou, realize novo login.") {
+        setLoggedUser(null);
+        localStorage.clear();
+        navigate("/");
       }
     }
   };
@@ -154,6 +202,28 @@ function ContatoPage() {
                 </Form.Control.Feedback>
               </FloatingLabel>
               <FloatingLabel
+                label="Telefone"
+                className="mb-3 labelCriarConta"
+                style={{ fontSize: 12 }}
+              >
+                <Form.Control
+                  required
+                  type="text"
+                  placeholder=""
+                  name="telefone"
+                  value={form.telefone}
+                  style={{
+                    height: 30,
+                    fontSize: 13,
+                    minHeight: 35,
+                  }}
+                  onChange={handleChange}
+                />
+                <Form.Control.Feedback type="invalid">
+                  Insira o seu Telefone.
+                </Form.Control.Feedback>
+              </FloatingLabel>
+              <FloatingLabel
                 label="Assunto"
                 className="mb-3 labelCriarConta"
                 style={{ fontSize: 12 }}
@@ -170,11 +240,9 @@ function ContatoPage() {
                     minHeight: 35,
                   }}
                   onChange={handleChange}
-                  isValid={nomeValid}
-                  isInvalid={nomeValid === false}
                 />
                 <Form.Control.Feedback type="invalid">
-                  Insira o seu nome.
+                  Insira o assunto.
                 </Form.Control.Feedback>
               </FloatingLabel>
               <FloatingLabel
@@ -220,19 +288,26 @@ function ContatoPage() {
                 }}
                 variant="primary"
               >
-                <i
-                  className="bi bi-envelope-arrow-up icon"
-                  style={{ fontWeight: "bold" }}
-                ></i>{" "}
-                <i
-                  className="contatoZap"
-                  style={{
-                    fontStyle: "normal",
-                    fontWeight: 450,
-                  }}
-                >
-                  {"Enviar"}
-                </i>
+                {isLoading ? (
+                  <Spinner size="sm"></Spinner>
+                ) : (
+                  <>
+                    <i
+                      className="bi bi-envelope-arrow-up icon"
+                      style={{ fontWeight: "bold" }}
+                    ></i>{" "}
+                    <i
+                      className="contatoZap"
+                      style={{
+                        fontStyle: "normal",
+                        fontWeight: 450,
+                      }}
+                      onClick={handleSubmit}
+                    >
+                      {"Enviar"}
+                    </i>
+                  </>
+                )}
               </Button>
             </Container>
           </Col>

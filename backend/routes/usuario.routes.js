@@ -23,6 +23,49 @@ const transporter = nodemailer.createTransport({
   },
 });
 
+router.post("/enviar-email", async (request, response) => {
+  try {
+    const { email, assunto, nome, telefone, msg } = request.body;
+
+    const mailOptions = {
+      from: email,
+      to: "mbs.tratamentotermico@gmail.com", //mbs.tratamentotermico@gmail.com
+      subject: assunto,
+      html: `<h1> Mensagem do cliente ${nome}</h1>
+      <p> Email digitado pelo cliente:${email}</p>
+      <p> Telefone digitado pelo cliente:${telefone}</p>
+      <p>Mensagem do cliente: ${msg}</p>`,
+      replyTo: email,
+      headers: {
+        "X-Priority": "3",
+        "X-MSMail-Priority": "Normal",
+        "X-Mailer": "Nodemailer",
+      },
+    };
+    try {
+      const res = await transporter.sendMail(mailOptions);
+    } catch (error) {
+      await UsuarioModel.findByIdAndDelete(newUsuario._id);
+
+      if (error.message === "No recipients defined")
+        return response
+          .status(500)
+          .json({ msg: "Por favor, revise o e-mail inserido." });
+    }
+    return response.status(201).json("Email enviado com sucesso!");
+  } catch (error) {
+    console.log(error);
+    if (error.errorResponse && error.errorResponse.code === 11000) {
+      return response
+        .status(500)
+        .json({ msg: "Conta de usuário já existente." });
+    }
+    return response
+      .status(500)
+      .json({ msg: "Erro interno, tente mais tarde!" });
+  }
+});
+
 router.post("/create", async (request, response) => {
   try {
     const { password, email } = request.body;
@@ -76,7 +119,6 @@ router.post("/create", async (request, response) => {
     };
     try {
       const res = await transporter.sendMail(mailOptions);
-      console.log(res);
     } catch (error) {
       await UsuarioModel.findByIdAndDelete(newUsuario._id);
 

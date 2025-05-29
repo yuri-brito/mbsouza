@@ -28,7 +28,7 @@ import Empresa from "./Empresa";
 import Informacoes from "./Informacoes";
 import Contato from "./Contato";
 import MenuPerfil from "./MenuPerfil";
-function NavBar() {
+function NavBar({ produtos }) {
   // const [theme, setTheme] = useState("");
   const { loggedUser, setLoggedUser, theme, setTheme } =
     useContext(AuthContext);
@@ -88,7 +88,7 @@ function NavBar() {
         height: "9vw",
         minHeight: 90,
 
-        zIndex: 999,
+        zIndex: 10,
         color: "var(--bs-text-color)",
       }}
     >
@@ -145,7 +145,7 @@ function NavBar() {
                 <Menu />
               </Col>
               <Col xs="auto" className="d-flex justify-content-center">
-                <Buscador />
+                <Buscador produtos={produtos} />
               </Col>
             </Row>
           </Col>

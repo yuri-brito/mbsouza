@@ -5,7 +5,7 @@ const Footer = (props) => {
     <div
       className="footerWrap row m-0 d-flex align-items-center"
       style={{
-        position: "fixed",
+        // position: "fixed",
         bottom: 0,
         width: "100%",
         backgroundColor: "var(--bs-body-color)",

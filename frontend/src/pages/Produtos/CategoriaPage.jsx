@@ -5,6 +5,7 @@ import { useLocation, useParams } from "react-router-dom";
 import {
   Button,
   Card,
+  Carousel,
   Col,
   Container,
   FloatingLabel,
@@ -14,7 +15,7 @@ import {
 } from "react-bootstrap";
 import { useContext } from "react";
 import { AuthContext } from "../../contexts/authContext";
-
+import "./CategoriaPage.css";
 function CategoriaPage({ produtos, subcategorias }) {
   const { theme } = useContext(AuthContext);
   const { id } = useParams();
@@ -68,55 +69,101 @@ function CategoriaPage({ produtos, subcategorias }) {
         </h2>
       </Row>
       <Container>
-        <Row className="gap-5">
+        <Row className="d-flex flex-wrap justify-content-center gap-5">
           {produtosCategoria.map((p) => {
             return (
-              <Col className="d-flex justify-content-center">
-                <a
-                  className="d-flex justify-content-center larguraCard"
-                  href="/produtoDetail"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  style={{ textDecoration: "none" }}
+              <Col className="col-auto d-flex justify-content-center">
+                <Card
+                  bg={theme === "dark" ? "dark" : "light"}
+                  className="p-0 larguraCard"
+                  style={{
+                    boxShadow: "rgba(0, 0, 0, 0.35) 0px 5px 15px",
+                  }}
                 >
-                  <Card
-                    bg={theme === "dark" ? "dark" : "light"}
-                    className="p-0 larguraCard"
-                    style={{
-                      boxShadow: "rgba(0, 0, 0, 0.35) 0px 5px 15px",
-                    }}
-                  >
-                    <Card.Header className="titulos">
-                      {p.subcategoria.categoria.nome}
-                    </Card.Header>
-                    <Card.Body>
-                      <Col className="justify-content-center px-2">
-                        <Col className="mb-4 justify-content-center">
-                          <img
-                            className="d-block p-0 mx-auto imgProduto"
-                            src={p.imagens[0].url}
-                            alt="Second slide"
-                            style={{ borderRadius: 6 }}
-                          />
-                        </Col>
-                        <Col className="d-flex flex-column justify-content-evenly ">
-                          <Row
-                            className="subtitulos mb-3"
-                            style={{ fontWeight: 700 }}
-                          >
-                            {p.nome}
-                          </Row>
-                          <Row className="textos" style={{ textAlign: "left" }}>
-                            {p.descricao}
-                          </Row>
-                        </Col>
+                  {/* <Card.Header className="titulos">
+                    {p.subcategoria.categoria.nome}
+                  </Card.Header> */}
+                  <Card.Body>
+                    <Col className="justify-content-center px-2">
+                      <Carousel
+                        className="carrosselCard"
+                        //   id="carrosselHome"
+                        style={{
+                          width: "100%",
+                          marginInline: "auto",
+                          marginTop: 0,
+                        }}
+                        interval={null}
+                        indicators={true}
+                      >
+                        {p.imagens.map((img, i) => {
+                          return (
+                            <Carousel.Item key={i}>
+                              <Row
+                                className="d-flex justify-content-center align-items-center m-0 py-3 "
+                                style={{
+                                  width: "100%",
+                                  height: "250px", // altura padrão do slide
+                                  overflow: "hidden",
+                                }}
+                              >
+                                <img
+                                  className="d-block p-0 mx-auto imgProduto"
+                                  src={img.url}
+                                  alt="Produto"
+                                  style={{
+                                    height: "100%", // força ocupar toda a altura
+                                    width: "auto", // mantém a proporção da imagem
+                                    maxWidth: "100%", // impede ultrapassar largura
+                                    objectFit: "contain",
+                                    display: "block",
+                                  }}
+                                />
+                              </Row>
+                            </Carousel.Item>
+                          );
+                        })}
+                      </Carousel>
+
+                      <Col className="d-flex flex-column justify-content-evenly ">
+                        <Row className="subtitulos mb-3 justify-content-center mt-3 nomeClicavel">
+                          {p.nome}
+                        </Row>
+                        <Row className="textos mb-3 justify-content-center mt-3">
+                          <Col>
+                            <b
+                              className="nomeClicavel"
+                              style={{ fontWeight: 400 }}
+                              onClick={(e) => {
+                                console.log("Fois");
+                              }}
+                            >
+                              {p.subcategoria.categoria.nome}
+                            </b>
+                            <b> - </b>
+                            <b
+                              className="nomeClicavel"
+                              style={{ fontWeight: 400 }}
+                              onClick={(e) => {
+                                console.log("Fois");
+                              }}
+                            >
+                              {p.subcategoria.nome}
+                            </b>
+                          </Col>
+                        </Row>
                       </Col>
-                    </Card.Body>
-                    <Card.Footer className="textos" style={{ fontWeight: 700 }}>
-                      {p.valor}
-                    </Card.Footer>
-                  </Card>
-                </a>
+                    </Col>
+                  </Card.Body>
+                  <Card.Footer className="textos" style={{ fontWeight: 700 }}>
+                    {p.valor === 0
+                      ? "Preço sob enconmenda"
+                      : new Intl.NumberFormat("pt-BR", {
+                          style: "currency",
+                          currency: "BRL",
+                        }).format(p.valor)}
+                  </Card.Footer>
+                </Card>
               </Col>
             );
           })}

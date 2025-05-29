@@ -56,7 +56,7 @@ function App() {
     <div className="App">
       <Toaster />
       <AuthContextComponent>
-        <NavBar />
+        <NavBar produtos={produtos} />
         <SubNav />
         <NossosProdutos
           produtos={produtos}
@@ -64,7 +64,16 @@ function App() {
           subcategorias={subcategorias}
         />
         <Routes>
-          <Route path="/" element={<Home />} />
+          <Route
+            path="/"
+            element={
+              <Home
+                produtos={produtos}
+                categorias={categorias}
+                subcategorias={subcategorias}
+              />
+            }
+          />
           <Route path="/Empresa" element={<EmpresaPage />}></Route>
           <Route path="/Informacoes" element={<InformacoesPage />}></Route>
           <Route path="/Contato" element={<ContatoPage />}></Route>
