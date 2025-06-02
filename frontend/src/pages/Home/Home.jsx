@@ -865,7 +865,7 @@ function Home({ produtos }) {
           <Row className="d-flex flex-wrap justify-content-center gap-5">
             {produtos
               .sort((a, b) => new Date(b.createdAt) - new Date(a.createdAt)) // ordena por data decrescente
-              .slice(0, 2)
+              .slice(0, 8)
               .map((p) => {
                 return (
                   <Col className="col-auto d-flex justify-content-center">

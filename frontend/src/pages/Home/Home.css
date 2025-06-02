@@ -8,7 +8,7 @@
     font-size: 25px;
 }
 .larguraCard{
-    width: 400px;
+    width: 300px;
 }
 @media (max-width: 800px) {
     .hamburguer{
