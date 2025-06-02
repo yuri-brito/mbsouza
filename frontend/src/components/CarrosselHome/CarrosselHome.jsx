@@ -1,12 +1,13 @@
-import { Card, Col, Container, Row } from "react-bootstrap";
+import { Button, Card, Col, Container, Row } from "react-bootstrap";
 import Carousel from "react-bootstrap/Carousel";
 import "./CarrosselHome.css";
 import "../../pages/Home/Home.css";
 import teste from "../../assets/teste.png";
 import { useEffect } from "react";
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 function CarrosselHome({ theme, produtos }) {
-  console.log(produtos);
+  const navigate = useNavigate();
   const [controlsVis, setControlsVis] = useState(false);
   const [produtosSuperDestaque, setProdutosSuperDestaque] = useState([]);
   useEffect(() => {
@@ -82,17 +83,29 @@ function CarrosselHome({ theme, produtos }) {
                   {p.nome}
                 </Row>
                 <Row
-                  className="textos d-flex flex-wrap"
+                  className="textos d-flex flex-wrap mb-5"
                   style={{
                     textAlign: "left",
                     paddingInline: "1rem",
                     wordBreak: "break-word",
                     overflowWrap: "break-word",
                     // fontSize: "clamp(12px, 2vw, 18px)",
-                    height: "20vw",
+                    // height: "20vw",
                   }}
                 >
                   {p.descricao}
+                </Row>
+                <Row>
+                  <Button
+                    size="sm"
+                    variant="success"
+                    className="textos"
+                    onClick={() => {
+                      navigate(`/ProdutoPage/${p._id}`);
+                    }}
+                  >
+                    <i className="bi bi-ticket-detailed"> </i> Detalhar
+                  </Button>
                 </Row>
               </Col>
             </Row>

@@ -624,6 +624,7 @@ function Admin() {
     if (c) {
       setFormProduto(c);
       setProdutoChosen(c);
+      setEspecificacoes(c.espTec);
     }
 
     setShowProduto(true);

@@ -1,7 +1,7 @@
 import { useEffect, useRef, useState } from "react";
 import CarrosselHome from "../../components/CarrosselHome/CarrosselHome";
 import NavBar from "../../components/NavBar/NavBar";
-import { useLocation, useParams } from "react-router-dom";
+import { useLocation, useNavigate, useParams } from "react-router-dom";
 import {
   Button,
   Card,
@@ -17,6 +17,7 @@ import { useContext } from "react";
 import { AuthContext } from "../../contexts/authContext";
 import "./CategoriaPage.css";
 function CategoriaPage({ produtos, subcategorias }) {
+  const navigate = useNavigate();
   const { theme } = useContext(AuthContext);
   const { id } = useParams();
   const [produtosCategoria, setProdutosCategoria] = useState([]);
@@ -80,53 +81,69 @@ function CategoriaPage({ produtos, subcategorias }) {
                     boxShadow: "rgba(0, 0, 0, 0.35) 0px 5px 15px",
                   }}
                 >
-                  {/* <Card.Header className="titulos">
-                    {p.subcategoria.categoria.nome}
-                  </Card.Header> */}
                   <Card.Body>
                     <Col className="justify-content-center px-2">
-                      <Carousel
-                        className="carrosselCard"
-                        //   id="carrosselHome"
-                        style={{
-                          width: "100%",
-                          marginInline: "auto",
-                          marginTop: 0,
-                        }}
-                        interval={null}
-                        indicators={true}
-                      >
-                        {p.imagens.map((img, i) => {
-                          return (
-                            <Carousel.Item key={i}>
-                              <Row
-                                className="d-flex justify-content-center align-items-center m-0 py-3 "
-                                style={{
-                                  width: "100%",
-                                  height: "250px", // altura padrão do slide
-                                  overflow: "hidden",
-                                }}
-                              >
-                                <img
-                                  className="d-block p-0 mx-auto imgProduto"
-                                  src={img.url}
-                                  alt="Produto"
+                      {p.imagens.length === 0 ? (
+                        <Row
+                          className="justify-content-center align-items-center"
+                          style={{
+                            width: "100%",
+                            marginInline: "auto",
+                            marginTop: 0,
+                            height: "250px",
+                          }}
+                        >
+                          Sem imagens disponíveis 😒
+                        </Row>
+                      ) : (
+                        <Carousel
+                          className="carrosselCard"
+                          //   id="carrosselHome"
+                          style={{
+                            width: "100%",
+                            marginInline: "auto",
+                            marginTop: 0,
+                          }}
+                          interval={null}
+                          indicators={true}
+                        >
+                          {p.imagens.map((img, i) => {
+                            return (
+                              <Carousel.Item key={i}>
+                                <Row
+                                  className="d-flex justify-content-center align-items-center m-0 py-3 "
                                   style={{
-                                    height: "100%", // força ocupar toda a altura
-                                    width: "auto", // mantém a proporção da imagem
-                                    maxWidth: "100%", // impede ultrapassar largura
-                                    objectFit: "contain",
-                                    display: "block",
+                                    width: "100%",
+                                    height: "250px", // altura padrão do slide
+                                    overflow: "hidden",
                                   }}
-                                />
-                              </Row>
-                            </Carousel.Item>
-                          );
-                        })}
-                      </Carousel>
+                                >
+                                  <img
+                                    className="d-block p-0 mx-auto imgProduto"
+                                    src={img.url}
+                                    alt="Produto"
+                                    style={{
+                                      height: "100%", // força ocupar toda a altura
+                                      width: "auto", // mantém a proporção da imagem
+                                      maxWidth: "100%", // impede ultrapassar largura
+                                      objectFit: "contain",
+                                      display: "block",
+                                    }}
+                                  />
+                                </Row>
+                              </Carousel.Item>
+                            );
+                          })}
+                        </Carousel>
+                      )}
 
                       <Col className="d-flex flex-column justify-content-evenly ">
-                        <Row className="subtitulos mb-3 justify-content-center mt-3 nomeClicavel">
+                        <Row
+                          className="subtitulos mb-3 justify-content-center mt-3 nomeClicavel"
+                          onClick={(e) => {
+                            navigate(`/ProdutoPage/${p._id}`);
+                          }}
+                        >
                           {p.nome}
                         </Row>
                         <Row className="textos mb-3 justify-content-center mt-3">
@@ -135,7 +152,9 @@ function CategoriaPage({ produtos, subcategorias }) {
                               className="nomeClicavel"
                               style={{ fontWeight: 400 }}
                               onClick={(e) => {
-                                console.log("Fois");
+                                navigate(
+                                  `/CategoriaPage/${p.subcategoria.categoria._id}`
+                                );
                               }}
                             >
                               {p.subcategoria.categoria.nome}
@@ -145,7 +164,9 @@ function CategoriaPage({ produtos, subcategorias }) {
                               className="nomeClicavel"
                               style={{ fontWeight: 400 }}
                               onClick={(e) => {
-                                console.log("Fois");
+                                navigate(
+                                  `/CategoriaPage/${p.subcategoria._id}`
+                                );
                               }}
                             >
                               {p.subcategoria.nome}

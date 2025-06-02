@@ -1,0 +1,213 @@
+.galeria-container {
+  width: 100%; /* 🆕 Permite ocupar 100% do espaço dado pelo Col */
+  min-width: 200px;
+  margin: 0 auto;
+  text-align: center;
+   padding: 0 10px;
+   /* position: relative; 🆕 Garante que o contexto de empilhamento seja isolado */
+
+}
+
+.imagem-principal {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  max-height: 400px;
+  overflow: hidden;
+  /* z-index: 1; */
+}
+
+.imagem-principal figure.iiz {
+  width: 100%;
+  height: 100%; /* 🆕 Força o figure a ocupar o espaço do pai */
+  margin: 0; /* Remove margens padrão do figure */
+  display: flex; /* Garante que as imagens dentro respeitem o tamanho */
+  align-items: center;
+  justify-content: center;
+}
+
+.imagem-principal figure.iiz div {
+  height: 100%;
+}
+
+.imagem-principal img.iiz__img {
+  width: 100% !important;
+  height: 100% !important;
+  object-fit: contain !important;
+}
+
+.imagem-slide {
+  position: absolute; /* 🆕 Permite sobrepor imagens para o efeito de slide */
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  transition: transform 0.3s ease, opacity 0.3s ease;
+  /* z-index: 1; 🆕 Mantém as imagens sobre as miniaturas */
+}
+/* Efeitos de saída */
+.sair-direita {
+  transform: translateX(100%);
+  opacity: 0;
+}
+
+.sair-esquerda {
+  transform: translateX(-100%);
+  opacity: 0;
+}
+
+/* Efeitos de entrada */
+.entrar-direita {
+  transform: translateX(0);
+  opacity: 1;
+  animation: slideInRight 0.3s forwards;
+}
+
+.entrar-esquerda {
+  transform: translateX(0);
+  opacity: 1;
+  animation: slideInLeft 0.3s forwards;
+}
+@keyframes slideInRight {
+  from {
+    transform: translateX(100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+@keyframes slideInLeft {
+  from {
+    transform: translateX(-100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+.miniaturas-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  margin-top: 15px;
+  width: 100%;
+  height: 100px;
+  /* overflow: hidden;  */
+}
+@media (max-width:450px){
+    .miniaturas-container {
+
+  height: 80px;
+  
+}
+}
+@media (max-width:350px){
+    .miniaturas-container {
+
+  height: 70px;
+  
+}
+}
+.swiper{
+    width: 100%;
+}
+.swiper-slide {
+  /* width: auto !important;  */
+  /* margin-right: 0px !important; */
+  /* flex-shrink: 0; */
+  height: 100% !important;
+}
+.miniaturas-swiper {
+   height: 100% !important;
+}
+
+.miniatura {
+  /* width: clamp(20px, 18vw, 100px); 
+  height: clamp(20px, 18vw, 100px); */
+  width: 113px; 
+  height: 100% !important;
+  object-fit: cover;
+  cursor: pointer;
+  border: 2px solid transparent;
+  border-radius: 4px;
+  transition: border 0.3s ease;
+}
+@media (max-width:1400px){
+.miniatura {
+  width: 95px; 
+}
+}
+@media (max-width:1200px){
+.miniatura {
+  width: 75px; 
+}
+}
+@media (max-width:992px){
+.miniatura {
+  width: 60px; 
+}
+}
+.miniatura.ativa {
+  border-color: #007bff;
+}
+
+/* .botao-navegacao {
+  background-color: transparent;
+  border: none;
+  font-size: clamp(1.5rem, 5vw, 2rem);
+  cursor: pointer;
+  padding: 0 10px;
+  user-select: none;
+  z-index: 3; 
+}
+
+.botao-navegacao:focus {
+  outline: none;
+} */
+
+.botao-navegacao-prev{
+  background-image: url("../../assets/CarrosselHome/previous_home.png");
+  background-color: rgb(255, 255, 255);
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+  border-radius: 50%;
+  color: var(--bs-body-color);
+  width: 30px;
+  height: 30px;
+  padding: 0px;
+  margin:0px;
+  background-size: 100% 100%; /* 🆕 Ajusta o tamanho da imagem */
+  background-position: center; /* 🆕 Centraliza a imagem no botão */
+  background-repeat: no-repeat; /* 🆕 Evita repetição da imagem */
+}
+.botao-navegacao-next{
+  background-image: url("../../assets/CarrosselHome/next_home.png");
+  background-color: rgb(255, 255, 255);
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+  border-radius: 50%;
+  color: var(--bs-body-color);
+  width: 30px;
+  height: 30px;
+  /* min-width: 20px;
+  min-height: 20px; */
+  padding: 0px;
+  margin:0px;
+  background-size: 100% 100%; /* 🆕 Ajusta o tamanho da imagem */
+  background-position: center; /* 🆕 Centraliza a imagem no botão */
+  background-repeat: no-repeat; /* 🆕 Evita repetição da imagem */
+}
+
+
+
+
+
+
+
+
+

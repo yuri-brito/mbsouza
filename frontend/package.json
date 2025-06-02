@@ -25,6 +25,8 @@
     "react-drag-drop-files": "^2.3.10",
     "react-dropzone": "^14.3.8",
     "react-hot-toast": "^2.4.1",
+    "react-inner-image-zoom": "^4.0.1",
+    "react-medium-image-zoom": "^5.2.14",
     "react-router-dom": "^6.24.1",
     "react-select": "^5.8.0",
     "spinners-react": "^1.0.7",

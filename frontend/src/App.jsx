@@ -29,6 +29,7 @@ import Admin from "./pages/Admin/Admin";
 import api from "./api/api";
 import { useEffect } from "react";
 import CategoriaPage from "./pages/Produtos/CategoriaPage";
+import ProdutoPage from "./pages/Produtos/ProdutoPage";
 function App() {
   const [reload, setRelod] = useState(false);
   const [categorias, setCategorias] = useState([]);
@@ -84,6 +85,12 @@ function App() {
                 produtos={produtos}
                 subcategorias={subcategorias}
               />
+            }
+          ></Route>
+          <Route
+            path="/ProdutoPage/:id"
+            element={
+              <ProdutoPage produtos={produtos} subcategorias={subcategorias} />
             }
           ></Route>
           <Route

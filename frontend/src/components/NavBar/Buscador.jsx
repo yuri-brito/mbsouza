@@ -220,8 +220,8 @@ function Buscador({ produtos }) {
                     >
                       <img
                         width="100px"
-                        src={p.imagens[0].url}
-                        alt="imagem"
+                        src={p.imagens.length !== 0 && p.imagens[0].url}
+                        alt=""
                         style={{ cursor: "pointer" }}
                         onClick={() => {
                           console.log("clicou");
