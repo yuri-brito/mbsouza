@@ -31,7 +31,7 @@ function CarouselLogos() {
     <div
       className="carousel-container"
       style={{
-        borderBlock: "1px solid var(--bs-text-color)",
+        borderBlock: "2px solid var(--bs-text-color)",
         paddingBlock: 20,
         // paddingInline: 100,
         // boxShadow:

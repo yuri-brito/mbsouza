@@ -1,0 +1,18 @@
+.larguraCustom{
+    width: 60%;
+}
+@media (max-width:900px){
+    .larguraCustom{
+    width: 70%;
+}
+}
+@media (max-width:700px){
+    .larguraCustom{
+    width: 80%;
+}
+}
+@media (max-width:500px){
+    .larguraCustom{
+    width: 90%;
+}
+}

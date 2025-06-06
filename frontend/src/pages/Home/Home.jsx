@@ -680,9 +680,10 @@ function Home({ produtos }) {
           </h2>
           <p className="textos" style={{ maxWidth: "600px", margin: "0 auto" }}>
             A MB Souza é sinônimo de confiança e experiência em instalações de
-            aquecedores e boilers. Com um histórico de mais de 25 anos, sempre
-            estivemos na vanguarda em soluções aquecedoras com os princípios
-            técnicos de excelência, segurança e eficiência.
+            aquecedores e boilers. Há quase 20 anos no mercado, a MBS é
+            especialista em aquecimento de piscinas, residências e demais
+            empreendimentos comerciais, oferecendo soluções completas para quem
+            busca conforto, economia e eficiência.
           </p>
           <div
             className="mt-3"

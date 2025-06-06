@@ -1,17 +1,9 @@
 import { Toaster } from "react-hot-toast";
 import { AuthContextComponent } from "./contexts/authContext";
 import { Routes, Route } from "react-router-dom";
-import {
-  Button,
-  Col,
-  Container,
-  FloatingLabel,
-  Form,
-  FormCheck,
-  Row,
-} from "react-bootstrap";
+
 import "./App.css";
-import Pagamento from "./components/Pagamento";
+
 import Home from "./pages/Home/Home";
 import Activate from "./pages/Activate";
 import Rescue from "./pages/Rescue";
@@ -54,66 +46,72 @@ function App() {
   }, [reload]);
 
   return (
-    <div className="App">
-      <Toaster />
-      <AuthContextComponent>
-        <NavBar produtos={produtos} />
-        <SubNav />
-        <NossosProdutos
-          produtos={produtos}
-          categorias={categorias}
-          subcategorias={subcategorias}
-        />
-        <Routes>
-          <Route
-            path="/"
-            element={
-              <Home
-                produtos={produtos}
-                categorias={categorias}
-                subcategorias={subcategorias}
+    <>
+      <div className="App">
+        <main style={{ flex: 1 }}>
+          <Toaster />
+          <AuthContextComponent>
+            <NavBar produtos={produtos} />
+            <SubNav />
+            <NossosProdutos
+              produtos={produtos}
+              categorias={categorias}
+              subcategorias={subcategorias}
+            />
+            <Routes>
+              <Route
+                path="/"
+                element={
+                  <Home
+                    produtos={produtos}
+                    categorias={categorias}
+                    subcategorias={subcategorias}
+                  />
+                }
               />
-            }
-          />
-          <Route path="/Empresa" element={<EmpresaPage />}></Route>
-          <Route path="/Informacoes" element={<InformacoesPage />}></Route>
-          <Route path="/Contato" element={<ContatoPage />}></Route>
-          <Route
-            path="/CategoriaPage/:id"
-            element={
-              <CategoriaPage
-                produtos={produtos}
-                subcategorias={subcategorias}
-              />
-            }
-          ></Route>
-          <Route
-            path="/ProdutoPage/:id"
-            element={
-              <ProdutoPage produtos={produtos} subcategorias={subcategorias} />
-            }
-          ></Route>
-          <Route
-            path="/activate/:activationToken/:userId"
-            element={<Activate />}
-          ></Route>
-          <Route
-            path="/rescue/:activationToken/:userId"
-            element={<Rescue />}
-          ></Route>
-          <Route
-            path="/ProfilePage"
-            element={<ProtectedRoute Component={ProfilePage} />}
-          ></Route>
-          <Route
-            path="/Admin"
-            element={<ProtectedRoute Component={Admin} />}
-          ></Route>
-          <Route path="/pagamento" element={<Pagamento />} />
-        </Routes>
+              <Route path="/Empresa" element={<EmpresaPage />}></Route>
+              <Route path="/Informacoes" element={<InformacoesPage />}></Route>
+              <Route path="/Contato" element={<ContatoPage />}></Route>
+              <Route
+                path="/CategoriaPage/:id"
+                element={
+                  <CategoriaPage
+                    produtos={produtos}
+                    subcategorias={subcategorias}
+                  />
+                }
+              ></Route>
+              <Route
+                path="/ProdutoPage/:id"
+                element={
+                  <ProdutoPage
+                    produtos={produtos}
+                    subcategorias={subcategorias}
+                  />
+                }
+              ></Route>
+              <Route
+                path="/activate/:activationToken/:userId"
+                element={<Activate />}
+              ></Route>
+              <Route
+                path="/rescue/:activationToken/:userId"
+                element={<Rescue />}
+              ></Route>
+              <Route
+                path="/ProfilePage"
+                element={<ProtectedRoute Component={ProfilePage} />}
+              ></Route>
+              <Route
+                path="/Admin"
+                element={<ProtectedRoute Component={Admin} />}
+              ></Route>
+            </Routes>
+          </AuthContextComponent>
+        </main>
         <Footer />
-      </AuthContextComponent>
-    </div>
+      </div>
+    </>
   );
 }
 
