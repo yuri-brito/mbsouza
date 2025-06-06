@@ -2,7 +2,6 @@ import { Button, Card, Col, Container, Row } from "react-bootstrap";
 import Carousel from "react-bootstrap/Carousel";
 import "./CarrosselHome.css";
 import "../../pages/Home/Home.css";
-import teste from "../../assets/teste.png";
 import { useEffect } from "react";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
@@ -17,7 +16,6 @@ function CarrosselHome({ theme, produtos }) {
       })
     );
   }, [produtos]);
-  console.log(produtosSuperDestaque);
   return (
     <Carousel
       interval={null}
@@ -43,11 +41,11 @@ function CarrosselHome({ theme, produtos }) {
           <Carousel.Item
             style={{ minHeight: "fit-content", overflow: "visible" }}
           >
-            <Row className="justify-content-center align-items-center d-flex flex-nowrap ">
+            <Row className="justify-content-center align-items-center d-flex  " style={{marginInline:"3vw"}}>
               <Col
-                xs="auto"
+                md={3}
                 style={{ minWidth: "100px" }}
-                className=" mb-4 d-flex flex-column  justify-content-center align-items-center colunas "
+                className="mb-1 d-flex   justify-content-center align-items-center  "
               >
                 <Row className="d-flex justify-content-center align-items-center m-0 py-3 ">
                   <img
@@ -66,9 +64,9 @@ function CarrosselHome({ theme, produtos }) {
                 </Row>
               </Col>
               <Col
-                xs="auto"
-                style={{ minWidth: "100px", width: "60vw", overflowY: "auto" }}
-                className="d-flex flex-column justify-content-center align-items-center colunas "
+             
+                style={{ minWidth: "100px", width: "60vw", overflowY: "auto"  }}
+                className="d-flex flex-column justify-content-center align-items-center  "
               >
                 <Row
                   className="subtitulos mb-3"
@@ -77,13 +75,13 @@ function CarrosselHome({ theme, produtos }) {
                     paddingInline: "1rem",
                     wordBreak: "break-word",
                     overflowWrap: "break-word",
-                    height: "5vw",
+                
                   }}
                 >
                   {p.nome}
                 </Row>
                 <Row
-                  className="textos d-flex flex-wrap mb-5"
+                  className="textos d-flex flex-wrap mb-3"
                   style={{
                     textAlign: "left",
                     paddingInline: "1rem",

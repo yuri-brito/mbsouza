@@ -35,6 +35,18 @@
 .carrosselHome > .carousel-indicators {
   margin-bottom: -1vw !important;
 }
+@media (max-width:768px){
+  .carrosselHome > .carousel-indicators {
+  margin-bottom: -3vw !important;
+}
+
+}
+@media (max-width:579px){
+  .carrosselHome > .carousel-indicators {
+  margin-bottom: -4vw !important;
+}
+
+}
 
 .carrosselHome > .carousel-indicators > button {
   /* background-color: red !important; */
@@ -46,39 +58,13 @@
   border: 1px var(--bs-body-color) solid !important;
 }
 .carrosselHome > .carousel-indicators > .active[data-bs-target] {
-  /* background-color: var(--bs-body-color); */
+
 
   border: 2px var(--bs-body-color) solid !important;
 }
 
-/* .imgProduto{
-  width: 200px;
-}
 
-@media (max-width: 360px) {
-  .imgProduto{
-    width: 150px;
-  }
-} */
-/* .carrosselHome {
-  height: auto !important;
-  overflow: visible !important;
-}
-.carrosselHome > .carousel-inner{
-  height: auto !important;
-  overflow: visible !important;
-} */
-.colunas{
+/* .colunas{
     height: 25vw;
     
-}
-/* @media (max-width:420px){
-    .colunas{
-    height: 50vw;
-}
-}
-@media (max-width:380px){
-    .colunas{
-    height: 60vw;
-}
 } */

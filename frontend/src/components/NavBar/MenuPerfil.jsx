@@ -16,7 +16,37 @@ import { AuthContext } from "../../contexts/authContext";
 import { useRef, useState } from "react";
 import api from "../../api/api";
 import { SpinnerDotted } from "spinners-react";
+function calcularDigitoVerificadorCPF(cpf) {
+  // Remove qualquer caractere que não seja número
+  cpf = cpf.replace(/\D/g, "");
 
+  // Verifica se o CPF tem 9 dígitos
+  if (cpf.length !== 9) {
+    throw new Error("CPF deve conter 9 dígitos.");
+  }
+
+  // Função para calcular cada dígito verificador
+  const calcularDigito = (baseCPF, pesoInicial) => {
+    let soma = 0;
+    for (let i = 0; i < baseCPF.length; i++) {
+      soma += parseInt(baseCPF[i]) * (pesoInicial - i);
+    }
+    const resto = soma % 11;
+    return resto < 2 ? 0 : 11 - resto;
+  };
+
+  // Calcula o primeiro dígito verificador
+  const primeiroDigito = calcularDigito(cpf, 10);
+
+  // Adiciona o primeiro dígito ao CPF
+  cpf += primeiroDigito;
+
+  // Calcula o segundo dígito verificador
+  const segundoDigito = calcularDigito(cpf, 11);
+
+  // Retorna os dígitos verificadores
+  return `${primeiroDigito}${segundoDigito}`;
+}
 function MenuPerfil() {
   const { loggedUser, setLoggedUser } = useContext(AuthContext);
   const [showDrop, setShowDrop] = useState(false);
