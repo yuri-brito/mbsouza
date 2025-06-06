@@ -7,12 +7,13 @@ import {
   Form,
   Row,
 } from "react-bootstrap";
+import { useNavigate } from "react-router-dom";
 function Buscador({ produtos }) {
   const [termo, setTermo] = useState("");
   const [show, setShow] = useState(false);
   const [corFechar, setCorFechar] = useState("var(--bs-body-bg)");
   const [efeitoRow, setEfeitoRow] = useState(" animate__zoomIn");
-
+  const navigate = useNavigate();
   const handleChange = (e) => {
     setTermo(e.target.value);
     if (e.target.value === "") {
@@ -190,7 +191,8 @@ function Buscador({ produtos }) {
                     key={p._id}
                     ref={(el) => (refs.current[p._id] = el)}
                     onClick={() => {
-                      console.log("clicou");
+                      navigate(`/ProdutoPage/${p._id}`);
+                      handleFechar();
                     }}
                     style={{
                       justifyContent,
